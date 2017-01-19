@@ -29,7 +29,7 @@ name | F | String | "Default" if not specified
 person.unauthorizedAction | Throws if not admin creating policy.
 
 
-## Update work schedule.
+## Setup work schedule.
 
 > Returns JSON structured like this:
 
@@ -63,7 +63,7 @@ person.unauthorizedAction | Throws if not admin updating policy.
 
 
 
-## Update policy start date.
+## Setup policy start date.
 
 > Returns JSON structured like this:
 
@@ -97,7 +97,7 @@ effectiveAsOf | T | String | yyyy-MM-dd
 person.unauthorizedAction | Throws if not admin creating policy.
 
 
-## Update holidays ???.
+## Setup holidays ???.
 
 > Returns JSON structured like this:
 
