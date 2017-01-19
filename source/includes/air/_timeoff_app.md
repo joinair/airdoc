@@ -97,16 +97,17 @@ effectiveAsOf | T | String | yyyy-MM-dd
 person.unauthorizedAction | Throws if not admin creating policy.
 
 
-## Update holidays.
+## Update holidays ???.
 
 > Returns JSON structured like this:
 
 ```json
   {
-    "standart": {
-       "enabled": [uuid1, uuid2],
+    "regular": {
+       "enabled": ["uuid1", "uuid2"],
     },
-    "custom": {
+    "custom": [{
+       "id": "uuid",
        "name": "Day of my awesomeness",
        "startDay": "2017-01-01",
        "endDay": "2017-01-02",
@@ -125,7 +126,7 @@ Update company holidays.
 
 Parameter | Required|  Type  | Description
 --------- | ------- | ------ | -----------
-???
+enabled | T | [String] | Array of enabled holidays.
 
 ### Errors
 
@@ -134,20 +135,28 @@ Parameter | Required|  Type  | Description
 person.unauthorizedAction | Throws if not admin creating policy.
 
 
-
-======= Types ==========
-
-
 ## Setup types.
 
 > Returns JSON structured like this:
 
 ```json
   {
-      [{
-        "id": "uuid",
-        "name": "Holiday",
-        "isEnabled": true
+      "types": [{
+          "id": "uuid",
+          "name": "Holiday",
+          "allowance": 20,
+          "accrualFrequency": "Yearly",
+          "accrualStartDate": "2017-02-01",
+          "isNeedToRenew": "true",
+          "renewDateMonth": "12",
+          "renewDateDay": "31",
+          "isCarriedOver": "true",
+          "carryOverLimitDays": "10",
+          "waitingPeriodEnabled": "true",
+          "waitingPeriod": "90",
+          "isAccruedOnWait": "false",
+          "isUnlimited": "false",
+          "isActive": "true"
       }]
   }
 ```
@@ -180,23 +189,21 @@ person.unauthorizedAction | Throws if not admin creating policy.
 
 ```json
   {
-      {
-        "id": "uuid",
-        "name": "Holiday",
-        "allowance": 20,
-        "accrualFrequency": "Yearly",
-        "accrualStartDate": "2017-02-01",
-        "isNeedToRenew": "true",
-        "renewDateMonth": "12",
-        "renewDateDay": "31",
-        "isCarriedOver": "true",
-        "carryOverLimitDays": "10",
-        "waitingPeriodEnabled": "true",
-        "waitingPeriod": "90",
-        "isAccruedOnWait": "false",
-        "isUnlimited": "false",
-        "isActive": "true"
-      }
+    "id": "uuid",
+    "name": "Holiday",
+    "allowance": 20,
+    "accrualFrequency": "Yearly",
+    "accrualStartDate": "2017-02-01",
+    "isNeedToRenew": "true",
+    "renewDateMonth": "12",
+    "renewDateDay": "31",
+    "isCarriedOver": "true",
+    "carryOverLimitDays": "10",
+    "waitingPeriodEnabled": "true",
+    "waitingPeriod": "90",
+    "isAccruedOnWait": "false",
+    "isUnlimited": "false",
+    "isActive": "true"
   }
 ```
 
@@ -222,6 +229,62 @@ waitingPeriodEnabled | T | Boolean|
 waitingPeriod | F | Int | Only if waitingPeriodEnabled = true.
 isAccruedOnWait | F | Boolean | Only if waitingPeriodEnabled = true.
 isUnlimited | T | Boolean | If specified other fields ignored.
+
+
+### Errors
+
+ Id  | Description
+---- | -----------
+person.unauthorizedAction | Throws if not admin creating policy.
+
+
+## Setup eligibility.
+
+> Returns nothing:
+
+Setup policy eligibility.
+
+### HTTP Request
+
+`POST /apps/timeoff/policies/:p_id:/eligibility`
+
+###  Parameters
+
+Parameter | Required|  Type  | Description
+--------- | ------- | ------ | -----------
+employeeIds | T | [String] | Sequence of employee ids assigned to policy.
+
+### Errors
+
+ Id  | Description
+---- | -----------
+person.unauthorizedAction | Throws if not admin creating policy.
+
+
+
+## Setup balances.
+
+> Returns nothing:
+
+Setup remaining profile balances.
+
+### HTTP Request
+
+`POST /apps/timeoff/policies/:p_id:/balances`
+
+###  Parameters
+
+Parameter | Required|  Type  | Description
+--------- | ------- | ------ | -----------
+balances | T | [Balance] | Balance config for each employee.
+
+*Balance:*
+
+Field | Required|  Type  | Description
+----- | ------- | ------ | -----------
+profileId | T | String | UUID
+startDate | T | String | yyyy-MM-dd
+remaining | T | Int | Balance remaining on first day.
 
 
 ### Errors
