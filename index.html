@@ -151,23 +151,61 @@
 <td>String</td>
 <td>&ldquo;Default&rdquo; if not specified</td>
 </tr>
+</tbody></table>
+
+<h3 id="errors">Errors</h3>
+
+<table><thead>
+<tr>
+<th>Id</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>person.unauthorizedAction</td>
+<td>Throws if not admin creating policy.</td>
+</tr>
+</tbody></table>
+
+<h2 id="update-work-schedule">Update work schedule.</h2>
+
+<blockquote>
+<p>Returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="err">some_uuid</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Default"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"weekDaysOff"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">],</span><span class="w">
+    </span><span class="nt">"workDayHours"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Update work day hours and week days off, returns policy.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST /apps/timeoff/policies/:id:/schedule</code></p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
 <tr>
 <td>workDayHours</td>
-<td>F</td>
+<td>T</td>
 <td>Int</td>
-<td>8 if not specified</td>
+<td></td>
 </tr>
 <tr>
-<td>weekDaysOff</td>
-<td>F</td>
+<td>workDays</td>
+<td>T</td>
 <td>[Int]</td>
-<td>[6, 7] if not specified</td>
-</tr>
-<tr>
-<td>effectiveAsOf</td>
-<td>F</td>
-<td>String</td>
-<td>today if not specified</td>
+<td></td>
 </tr>
 </tbody></table>
 
@@ -180,9 +218,302 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>timeOffPolicy.notAllPoliciesFullyConfigured</td>
-<td>Throws if pending policy already exists.</td>
+<td>person.unauthorizedAction</td>
+<td>Throws if not admin updating policy.</td>
 </tr>
+</tbody></table>
+
+<h2 id="update-policy-start-date">Update policy start date.</h2>
+
+<blockquote>
+<p>Returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="err">some_uuid</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Default"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"weekDaysOff"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">],</span><span class="w">
+    </span><span class="nt">"workDayHours"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"effectiveAsOf"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-01"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Setup day when employee time off balance will be correct and when time
+off start accuring.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST /apps/timeoff/policies/:id:/effective</code></p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>effectiveAsOf</td>
+<td>T</td>
+<td>String</td>
+<td>yyyy-MM-dd</td>
+</tr>
+</tbody></table>
+
+<h3 id="errors">Errors</h3>
+
+<table><thead>
+<tr>
+<th>Id</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>person.unauthorizedAction</td>
+<td>Throws if not admin creating policy.</td>
+</tr>
+</tbody></table>
+
+<h2 id="update-holidays">Update holidays.</h2>
+
+<blockquote>
+<p>Returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"standart"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+       </span><span class="nt">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">uuid</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="err">uuid</span><span class="mi">2</span><span class="p">],</span><span class="w">
+    </span><span class="err">}</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"custom"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+       </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Day of my awesomeness"</span><span class="p">,</span><span class="w">
+       </span><span class="nt">"startDay"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-01"</span><span class="p">,</span><span class="w">
+       </span><span class="nt">"endDay"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-02"</span><span class="p">,</span><span class="w">
+       </span><span class="nt">"isEnabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="p">}</span><span class="err">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Update company holidays.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST /apps/timeoff/policies/:id:/holidays</code></p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+</tbody></table>
+
+<p>???</p>
+
+<h3 id="errors">Errors</h3>
+
+<table><thead>
+<tr>
+<th>Id</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>person.unauthorizedAction</td>
+<td>Throws if not admin creating policy.</td>
+</tr>
+</tbody></table>
+
+<p>======= Types ==========</p>
+
+<h2 id="setup-types">Setup types.</h2>
+
+<blockquote>
+<p>Returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+      </span><span class="err">[{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"uuid"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Holiday"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"isEnabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+      </span><span class="p">}</span><span class="err">]</span><span class="w">
+  </span><span class="err">}</span><span class="w">
+</span></code></pre>
+<p>Create policy types.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST /apps/timeoff/policies/:id:/types</code></p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>enableHolidays</td>
+<td>T</td>
+<td>Boolean</td>
+<td>Create and enable Holidays type.</td>
+</tr>
+<tr>
+<td>enableSickness</td>
+<td>T</td>
+<td>Boolean</td>
+<td>Create and enable Sickness type.</td>
+</tr>
+<tr>
+<td>custom</td>
+<td>T</td>
+<td>[String]</td>
+<td>Array of custom types.</td>
+</tr>
+</tbody></table>
+
+<h3 id="errors">Errors</h3>
+
+<table><thead>
+<tr>
+<th>Id</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>person.unauthorizedAction</td>
+<td>Throws if not admin creating policy.</td>
+</tr>
+</tbody></table>
+
+<h2 id="setup-specific-type">Setup specific type.</h2>
+
+<blockquote>
+<p>Returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+      </span><span class="err">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"uuid"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Holiday"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"allowance"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"accrualFrequency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Yearly"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"accrualStartDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-01"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"isNeedToRenew"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"renewDateMonth"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"renewDateDay"</span><span class="p">:</span><span class="w"> </span><span class="s2">"31"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"isCarriedOver"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"carryOverLimitDays"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"waitingPeriodEnabled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"waitingPeriod"</span><span class="p">:</span><span class="w"> </span><span class="s2">"90"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"isAccruedOnWait"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"isUnlimited"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"isActive"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+  </span><span class="err">}</span><span class="w">
+</span></code></pre>
+<p>Create policy types.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST /apps/timeoff/policies/:p_id:/types/:t_id:</code></p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>allowance</td>
+<td>T</td>
+<td>Boolean</td>
+<td>How much days can get employee per year.</td>
+</tr>
+<tr>
+<td>accrualFrequency</td>
+<td>T</td>
+<td>String</td>
+<td>Yearly, Monthly, Quarterly, SemiMonthly, BiWeekly, Weekly.</td>
+</tr>
+<tr>
+<td>accrualStartDate</td>
+<td>T</td>
+<td>String</td>
+<td>2017-02-03.</td>
+</tr>
+<tr>
+<td>isNeedToRenew</td>
+<td>T</td>
+<td>Boolean</td>
+<td></td>
+</tr>
+<tr>
+<td>renewDateMonth</td>
+<td>F</td>
+<td>Int</td>
+<td>Only if isNeedToRenew = true.</td>
+</tr>
+<tr>
+<td>renewDateDay</td>
+<td>F</td>
+<td>Int</td>
+<td>Only if isNeedToRenew = true.</td>
+</tr>
+<tr>
+<td>isCarriedOver</td>
+<td>T</td>
+<td>Boolean</td>
+<td></td>
+</tr>
+<tr>
+<td>carryOverLimitDays</td>
+<td>F</td>
+<td>Int</td>
+<td>Only if isCarriedOver = true.</td>
+</tr>
+<tr>
+<td>waitingPeriodEnabled</td>
+<td>T</td>
+<td>Boolean</td>
+<td></td>
+</tr>
+<tr>
+<td>waitingPeriod</td>
+<td>F</td>
+<td>Int</td>
+<td>Only if waitingPeriodEnabled = true.</td>
+</tr>
+<tr>
+<td>isAccruedOnWait</td>
+<td>F</td>
+<td>Boolean</td>
+<td>Only if waitingPeriodEnabled = true.</td>
+</tr>
+<tr>
+<td>isUnlimited</td>
+<td>T</td>
+<td>Boolean</td>
+<td>If specified other fields ignored.</td>
+</tr>
+</tbody></table>
+
+<h3 id="errors">Errors</h3>
+
+<table><thead>
+<tr>
+<th>Id</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
 <tr>
 <td>person.unauthorizedAction</td>
 <td>Throws if not admin creating policy.</td>
