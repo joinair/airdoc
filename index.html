@@ -275,21 +275,22 @@ off start accuring.</p>
 </tr>
 </tbody></table>
 
-<h2 id="update-holidays">Update holidays.</h2>
+<h2 id="update-holidays">Update holidays ???.</h2>
 
 <blockquote>
 <p>Returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json"><code><span class="w">  </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"standart"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-       </span><span class="nt">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">uuid</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="err">uuid</span><span class="mi">2</span><span class="p">],</span><span class="w">
+    </span><span class="nt">"regular"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+       </span><span class="nt">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"uuid1"</span><span class="p">,</span><span class="w"> </span><span class="s2">"uuid2"</span><span class="p">],</span><span class="w">
     </span><span class="err">}</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"custom"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"custom"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"uuid"</span><span class="p">,</span><span class="w">
        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Day of my awesomeness"</span><span class="p">,</span><span class="w">
        </span><span class="nt">"startDay"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-01"</span><span class="p">,</span><span class="w">
        </span><span class="nt">"endDay"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-02"</span><span class="p">,</span><span class="w">
        </span><span class="nt">"isEnabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-    </span><span class="p">}</span><span class="err">]</span><span class="w">
+    </span><span class="p">}]</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Update company holidays.</p>
@@ -308,9 +309,13 @@ off start accuring.</p>
 <th>Description</th>
 </tr>
 </thead><tbody>
+<tr>
+<td>enabled</td>
+<td>T</td>
+<td>[String]</td>
+<td>Array of enabled holidays.</td>
+</tr>
 </tbody></table>
-
-<p>???</p>
 
 <h3 id="errors">Errors</h3>
 
@@ -326,20 +331,30 @@ off start accuring.</p>
 </tr>
 </tbody></table>
 
-<p>======= Types ==========</p>
-
 <h2 id="setup-types">Setup types.</h2>
 
 <blockquote>
 <p>Returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json"><code><span class="w">  </span><span class="p">{</span><span class="w">
-      </span><span class="err">[{</span><span class="w">
-        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"uuid"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Holiday"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"isEnabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-      </span><span class="p">}</span><span class="err">]</span><span class="w">
-  </span><span class="err">}</span><span class="w">
+      </span><span class="nt">"types"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"uuid"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Holiday"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"allowance"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"accrualFrequency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Yearly"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"accrualStartDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-01"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"isNeedToRenew"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"renewDateMonth"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"renewDateDay"</span><span class="p">:</span><span class="w"> </span><span class="s2">"31"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"isCarriedOver"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"carryOverLimitDays"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"waitingPeriodEnabled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"waitingPeriod"</span><span class="p">:</span><span class="w"> </span><span class="s2">"90"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"isAccruedOnWait"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"isUnlimited"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"isActive"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="w">
+      </span><span class="p">}]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Create policy types.</p>
 
@@ -397,24 +412,22 @@ off start accuring.</p>
 <p>Returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json"><code><span class="w">  </span><span class="p">{</span><span class="w">
-      </span><span class="err">{</span><span class="w">
-        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"uuid"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Holiday"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"allowance"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"accrualFrequency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Yearly"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"accrualStartDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-01"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"isNeedToRenew"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"renewDateMonth"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"renewDateDay"</span><span class="p">:</span><span class="w"> </span><span class="s2">"31"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"isCarriedOver"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"carryOverLimitDays"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"waitingPeriodEnabled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"waitingPeriod"</span><span class="p">:</span><span class="w"> </span><span class="s2">"90"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"isAccruedOnWait"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"isUnlimited"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"isActive"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-  </span><span class="err">}</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"uuid"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Holiday"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"allowance"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"accrualFrequency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Yearly"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"accrualStartDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-01"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"isNeedToRenew"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"renewDateMonth"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"renewDateDay"</span><span class="p">:</span><span class="w"> </span><span class="s2">"31"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"isCarriedOver"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"carryOverLimitDays"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"waitingPeriodEnabled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"waitingPeriod"</span><span class="p">:</span><span class="w"> </span><span class="s2">"90"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"isAccruedOnWait"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"isUnlimited"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"isActive"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Create policy types.</p>
 
@@ -503,6 +516,124 @@ off start accuring.</p>
 <td>T</td>
 <td>Boolean</td>
 <td>If specified other fields ignored.</td>
+</tr>
+</tbody></table>
+
+<h3 id="errors">Errors</h3>
+
+<table><thead>
+<tr>
+<th>Id</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>person.unauthorizedAction</td>
+<td>Throws if not admin creating policy.</td>
+</tr>
+</tbody></table>
+
+<h2 id="setup-eligibility">Setup eligibility.</h2>
+
+<blockquote>
+<p>Returns nothing:</p>
+</blockquote>
+
+<p>Setup policy eligibility.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST /apps/timeoff/policies/:p_id:/eligibility</code></p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>employeeIds</td>
+<td>T</td>
+<td>[String]</td>
+<td>Sequence of employee ids assigned to policy.</td>
+</tr>
+</tbody></table>
+
+<h3 id="errors">Errors</h3>
+
+<table><thead>
+<tr>
+<th>Id</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>person.unauthorizedAction</td>
+<td>Throws if not admin creating policy.</td>
+</tr>
+</tbody></table>
+
+<h2 id="setup-balances">Setup balances.</h2>
+
+<blockquote>
+<p>Returns nothing:</p>
+</blockquote>
+
+<p>Setup remaining profile balances.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST /apps/timeoff/policies/:p_id:/balances</code></p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>balances</td>
+<td>T</td>
+<td>[Balance]</td>
+<td>Balance config for each employee.</td>
+</tr>
+</tbody></table>
+
+<p><em>Balance:</em></p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Required</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>profileId</td>
+<td>T</td>
+<td>String</td>
+<td>UUID</td>
+</tr>
+<tr>
+<td>startDate</td>
+<td>T</td>
+<td>String</td>
+<td>yyyy-MM-dd</td>
+</tr>
+<tr>
+<td>remaining</td>
+<td>T</td>
+<td>Int</td>
+<td>Balance remaining on first day.</td>
 </tr>
 </tbody></table>
 
