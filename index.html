@@ -126,7 +126,7 @@
 <p>Returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json"><code><span class="w">  </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="err">some_uuid</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some_uuid"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Creates policy and returns id.</p>
@@ -149,7 +149,7 @@
 <td>name</td>
 <td>F</td>
 <td>String</td>
-<td>&ldquo;Default&rdquo; if not specified</td>
+<td>&ldquo;Default&rdquo; if not specified.</td>
 </tr>
 </tbody></table>
 
@@ -163,23 +163,256 @@
 </thead><tbody>
 <tr>
 <td>person.unauthorizedAction</td>
-<td>Throws if not admin creating policy.</td>
+<td>Throws if not admin make request.</td>
 </tr>
 </tbody></table>
 
-<h2 id="setup-work-schedule">Setup work schedule.</h2>
+<h2 id="delete-policy">Delete policy</h2>
 
 <blockquote>
 <p>Returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json"><code><span class="w">  </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="err">some_uuid</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"policies"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">"some_uuid</span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Deletes policy and returns remaining policyIds.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">DELETE /apps/timeoff/policies/:id:</code></p>
+
+<h3 id="errors">Errors</h3>
+
+<table><thead>
+<tr>
+<th>Id</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>person.unauthorizedAction</td>
+<td>Throws if not admin make request.</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-policies-setup-progress">Get policies setup progress</h2>
+
+<blockquote>
+<p>Returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="w">  </span><span class="p">[{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some_uuid"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Policy name"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"steps"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"Holidays"</span><span class="p">,</span><span class="w"> </span><span class="s2">"WorkSchedule"</span><span class="p">,</span><span class="w"> </span><span class="s2">"TypesAndRules"</span><span class="p">]</span><span class="w">
+  </span><span class="p">}]</span><span class="w">
+</span></code></pre>
+<p>Get all company policies and they steps.</p>
+
+<p>Available steps: Holidays, WorkSchedule, CreateTypes, EditTypes, Eligibility, EffectiveAsOf, Balances</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET /apps/timeoff/policies/setup</code></p>
+
+<h3 id="errors">Errors</h3>
+
+<table><thead>
+<tr>
+<th>Id</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>person.unauthorizedAction</td>
+<td>Throws if not admin make request.</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-policies-assigns">Get policies assigns</h2>
+
+<blockquote>
+<p>Returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="w">  </span><span class="p">[{</span><span class="w">
+    </span><span class="nt">"employeeId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some_uuid"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"policyId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some_uuid"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"policyName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My luxury policy"</span><span class="w">
+  </span><span class="p">}]</span><span class="w">
+</span></code></pre>
+<p>Get employees with assigned policies.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET /apps/timeoff/policies/assigns</code></p>
+
+<h3 id="errors">Errors</h3>
+
+<table><thead>
+<tr>
+<th>Id</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>person.unauthorizedAction</td>
+<td>Throws if not admin make request.</td>
+</tr>
+</tbody></table>
+
+<hr>
+
+<h2 id="get-holidays">Get holidays</h2>
+
+<blockquote>
+<p>Returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"regular"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"uuid"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New Years Day"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"startDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-01"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"endDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-02"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"isEnabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+      </span><span class="p">}],</span><span class="w">
+      </span><span class="nt">"custom"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"uuid"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Day of my awesomeness"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"startDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-01"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"endDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-02"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"isEnabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+      </span><span class="p">}]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Returns regular and custom policy holidays.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET /apps/timeoff/policies/:id:/holidays</code></p>
+
+<h2 id="setup-holidays">Setup holidays</h2>
+
+<blockquote>
+<p>Returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"regular"</span><span class="p">:</span><span class="w">  </span><span class="p">[</span><span class="s2">"uuid1"</span><span class="p">,</span><span class="w"> </span><span class="s2">"uuid2"</span><span class="p">],</span><span class="w">
+    </span><span class="nt">"custom"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"uuid"</span><span class="p">,</span><span class="w">
+       </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Day of my awesomeness"</span><span class="p">,</span><span class="w">
+       </span><span class="nt">"startDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-01"</span><span class="p">,</span><span class="w">
+       </span><span class="nt">"endDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-02"</span><span class="p">,</span><span class="w">
+       </span><span class="nt">"isEnabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="p">}]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Update company holidays.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST /apps/timeoff/policies/:id:/holidays</code></p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>regular</td>
+<td>T</td>
+<td>[String]</td>
+<td>Array of enabled regular holidays.</td>
+</tr>
+<tr>
+<td>custom</td>
+<td>T</td>
+<td>[HolidayMutation]</td>
+<td>Array of mutations for custom holidays.</td>
+</tr>
+</tbody></table>
+
+<p><strong>HolidayMutation:</strong></p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Required</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>F</td>
+<td>String</td>
+<td>If id didn&rsquo;t exist it is creation, else it is update.</td>
+</tr>
+<tr>
+<td>name</td>
+<td>F</td>
+<td>String</td>
+<td></td>
+</tr>
+<tr>
+<td>startDate</td>
+<td>F</td>
+<td>String</td>
+<td>yyyy-MM-dd</td>
+</tr>
+<tr>
+<td>endDate</td>
+<td>F</td>
+<td>String</td>
+<td>yyyy-MM-dd</td>
+</tr>
+<tr>
+<td>isEnabled</td>
+<td>F</td>
+<td>String</td>
+<td></td>
+</tr>
+<tr>
+<td>isDeletion</td>
+<td>F</td>
+<td>String</td>
+<td>If true holiday will be deleted</td>
+</tr>
+</tbody></table>
+
+<h3 id="errors">Errors</h3>
+
+<table><thead>
+<tr>
+<th>Id</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>person.unauthorizedAction</td>
+<td>Throws if not admin make request.</td>
+</tr>
+</tbody></table>
+
+<hr>
+
+<h2 id="setup-work-schedule">Setup work schedule</h2>
+
+<blockquote>
+<p>Returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some_uuid"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Default"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"weekDaysOff"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">],</span><span class="w">
+    </span><span class="nt">"workDays"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">],</span><span class="w">
     </span><span class="nt">"workDayHours"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Update work day hours and week days off, returns policy.</p>
+<p>Updates work day hours and week days off, returns policy.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -223,15 +456,17 @@
 </tr>
 </tbody></table>
 
-<h2 id="setup-policy-start-date">Setup policy start date.</h2>
+<hr>
+
+<h2 id="setup-policy-start-date">Setup policy start date</h2>
 
 <blockquote>
 <p>Returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json"><code><span class="w">  </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="err">some_uuid</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some_uuid"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Default"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"weekDaysOff"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">],</span><span class="w">
+    </span><span class="nt">"workDays"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">],</span><span class="w">
     </span><span class="nt">"workDayHours"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
     </span><span class="nt">"effectiveAsOf"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-01"</span><span class="w">
   </span><span class="p">}</span><span class="w">
@@ -271,51 +506,42 @@ off start accuring.</p>
 </thead><tbody>
 <tr>
 <td>person.unauthorizedAction</td>
-<td>Throws if not admin creating policy.</td>
+<td>Throws if not admin make request.</td>
 </tr>
 </tbody></table>
 
-<h2 id="setup-holidays">Setup holidays ???.</h2>
+<hr>
+
+<h2 id="get-types">Get types</h2>
 
 <blockquote>
 <p>Returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json"><code><span class="w">  </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"regular"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-       </span><span class="nt">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"uuid1"</span><span class="p">,</span><span class="w"> </span><span class="s2">"uuid2"</span><span class="p">],</span><span class="w">
-    </span><span class="err">}</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"custom"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
-       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"uuid"</span><span class="p">,</span><span class="w">
-       </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Day of my awesomeness"</span><span class="p">,</span><span class="w">
-       </span><span class="nt">"startDay"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-01"</span><span class="p">,</span><span class="w">
-       </span><span class="nt">"endDay"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-02"</span><span class="p">,</span><span class="w">
-       </span><span class="nt">"isEnabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-    </span><span class="p">}]</span><span class="w">
+      </span><span class="nt">"types"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"uuid"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Holiday"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"allowance"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"accrualFrequency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Yearly"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"accrualStartDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-01"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"isNeedToRenew"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"renewDateMonth"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"renewDateDay"</span><span class="p">:</span><span class="w"> </span><span class="s2">"31"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"isCarriedOver"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"carryOverLimitDays"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"waitingPeriodEnabled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"waitingPeriod"</span><span class="p">:</span><span class="w"> </span><span class="s2">"90"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"isAccruedOnWait"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"isUnlimited"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"isActive"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="w">
+      </span><span class="p">}]</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Update company holidays.</p>
+<p>Get all policy types.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">POST /apps/timeoff/policies/:id:/holidays</code></p>
-
-<h3 id="parameters">Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Required</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>enabled</td>
-<td>T</td>
-<td>[String]</td>
-<td>Array of enabled holidays.</td>
-</tr>
-</tbody></table>
+<p><code class="prettyprint">GET: /apps/timeoff/policies/:id:/types</code></p>
 
 <h3 id="errors">Errors</h3>
 
@@ -327,11 +553,11 @@ off start accuring.</p>
 </thead><tbody>
 <tr>
 <td>person.unauthorizedAction</td>
-<td>Throws if not admin creating policy.</td>
+<td>Throws if not admin make request.</td>
 </tr>
 </tbody></table>
 
-<h2 id="setup-types">Setup types.</h2>
+<h2 id="setup-types">Setup types</h2>
 
 <blockquote>
 <p>Returns JSON structured like this:</p>
@@ -387,8 +613,38 @@ off start accuring.</p>
 <tr>
 <td>custom</td>
 <td>T</td>
-<td>[String]</td>
-<td>Array of custom types.</td>
+<td>[PolicyTypeMutation]</td>
+<td>Array of type mutations.</td>
+</tr>
+</tbody></table>
+
+<p><strong>PolicyTypeMutation:</strong></p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Required</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>T</td>
+<td>String</td>
+<td>Create new policy type if not specified.</td>
+</tr>
+<tr>
+<td>name</td>
+<td>T</td>
+<td>String</td>
+<td>Type name.</td>
+</tr>
+<tr>
+<td>isDeletion</td>
+<td>T</td>
+<td>Boolean</td>
+<td>Delete policy if specified.</td>
 </tr>
 </tbody></table>
 
@@ -402,11 +658,11 @@ off start accuring.</p>
 </thead><tbody>
 <tr>
 <td>person.unauthorizedAction</td>
-<td>Throws if not admin creating policy.</td>
+<td>Throws if not admin make request.</td>
 </tr>
 </tbody></table>
 
-<h2 id="setup-specific-type">Setup specific type.</h2>
+<h2 id="setup-specific-type">Setup specific type</h2>
 
 <blockquote>
 <p>Returns JSON structured like this:</p>
@@ -429,7 +685,7 @@ off start accuring.</p>
     </span><span class="nt">"isActive"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Create policy types.</p>
+<p>Edit specific policy type by id.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -529,11 +785,39 @@ off start accuring.</p>
 </thead><tbody>
 <tr>
 <td>person.unauthorizedAction</td>
-<td>Throws if not admin creating policy.</td>
+<td>Throws if not admin make request.</td>
 </tr>
 </tbody></table>
 
-<h2 id="setup-eligibility">Setup eligibility.</h2>
+<h2 id="finis-editing-types-step">Finis editing types step</h2>
+
+<blockquote>
+<p>Returns nothing:</p>
+</blockquote>
+
+<p>Finish step.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST /apps/timeoff/policies/:p_id:/types/finish</code></p>
+
+<h3 id="errors">Errors</h3>
+
+<table><thead>
+<tr>
+<th>Id</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>person.unauthorizedAction</td>
+<td>Throws if not admin make request.</td>
+</tr>
+</tbody></table>
+
+<hr>
+
+<h2 id="setup-eligibility">Setup eligibility</h2>
 
 <blockquote>
 <p>Returns nothing:</p>
@@ -573,11 +857,43 @@ off start accuring.</p>
 </thead><tbody>
 <tr>
 <td>person.unauthorizedAction</td>
-<td>Throws if not admin creating policy.</td>
+<td>Throws if not admin make request.</td>
 </tr>
 </tbody></table>
 
-<h2 id="setup-balances">Setup balances.</h2>
+<hr>
+
+<h2 id="get-total-allowance">Get total allowance</h2>
+
+<blockquote>
+<p>Returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="w">  </span><span class="p">[{</span><span class="w">
+    </span><span class="nt">"employeeId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"uuid"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"totalAllowance"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w">
+  </span><span class="p">}]</span><span class="w">
+</span></code></pre>
+<p>Get total allowance for all employees.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET /apps/timeoff/policies/:p_id:/types/:t_id:/balances</code></p>
+
+<h3 id="errors">Errors</h3>
+
+<table><thead>
+<tr>
+<th>Id</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>person.unauthorizedAction</td>
+<td>Throws if not admin make request.</td>
+</tr>
+</tbody></table>
+
+<h2 id="setup-balances">Setup balances</h2>
 
 <blockquote>
 <p>Returns nothing:</p>
@@ -587,7 +903,7 @@ off start accuring.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">POST /apps/timeoff/policies/:p_id:/balances</code></p>
+<p><code class="prettyprint">POST /apps/timeoff/policies/:p_id:/types/:t_id:/balances</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -607,7 +923,7 @@ off start accuring.</p>
 </tr>
 </tbody></table>
 
-<p><em>Balance:</em></p>
+<p><strong>Balance:</strong></p>
 
 <table><thead>
 <tr>
@@ -622,12 +938,6 @@ off start accuring.</p>
 <td>T</td>
 <td>String</td>
 <td>UUID</td>
-</tr>
-<tr>
-<td>startDate</td>
-<td>T</td>
-<td>String</td>
-<td>yyyy-MM-dd</td>
 </tr>
 <tr>
 <td>remaining</td>
@@ -647,7 +957,7 @@ off start accuring.</p>
 </thead><tbody>
 <tr>
 <td>person.unauthorizedAction</td>
-<td>Throws if not admin creating policy.</td>
+<td>Throws if not admin make request.</td>
 </tr>
 </tbody></table>
 
