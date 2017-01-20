@@ -36,7 +36,7 @@ person.unauthorizedAction | Throws if not admin make request.
 
 ```json
   {
-    "policies": ["some_uuid]
+    "policies": ["some_uuid"]
   }
 ```
 
