@@ -53,6 +53,34 @@ Deletes policy and returns remaining policyIds.
 person.unauthorizedAction | Throws if not admin make request.
 
 
+## Get policy
+
+> Returns JSON structured like this:
+
+```json
+  {
+    "id": "some_uuid",
+    "name": "Default",
+    "workDays": [1, 2, 3, 4, 5],
+    "workDayHours": 8,
+    "effectiveAsOf": "2017-01-01"
+  }
+```
+
+Returns policy by id.
+
+### HTTP Request
+
+`GET /apps/timeoff/policies/:id:`
+
+### Errors
+
+ Id  | Description
+---- | -----------
+person.unauthorizedAction | Throws if not admin make request.
+timeOffPolicy.timeOffPolicyNotFond | Throws if not exists policy with this id.
+
+
 ## Get policies setup progress
 
 > Returns JSON structured like this:
