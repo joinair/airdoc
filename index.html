@@ -163,7 +163,7 @@
 </thead><tbody>
 <tr>
 <td>person.unauthorizedAction</td>
-<td>Throws if not admin make request.</td>
+<td>Throws if request is not made by admin.</td>
 </tr>
 </tbody></table>
 
@@ -192,7 +192,7 @@
 </thead><tbody>
 <tr>
 <td>person.unauthorizedAction</td>
-<td>Throws if not admin make request.</td>
+<td>Throws if request is not made by admin.</td>
 </tr>
 </tbody></table>
 
@@ -225,11 +225,11 @@
 </thead><tbody>
 <tr>
 <td>person.unauthorizedAction</td>
-<td>Throws if not admin make request.</td>
+<td>Throws if request is not made by admin.</td>
 </tr>
 <tr>
 <td>timeOffPolicy.timeOffPolicyNotFound</td>
-<td>Throws if not exists policy with this id.</td>
+<td>Throws if policy with this id does not exist.</td>
 </tr>
 </tbody></table>
 
@@ -244,7 +244,7 @@
     </span><span class="nt">"steps"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"Holidays"</span><span class="p">,</span><span class="w"> </span><span class="s2">"WorkSchedule"</span><span class="p">,</span><span class="w"> </span><span class="s2">"TypesAndRules"</span><span class="p">]</span><span class="w">
   </span><span class="p">}]</span><span class="w">
 </span></code></pre>
-<p>Get all company policies and they steps.</p>
+<p>Get all company policies and their steps.</p>
 
 <p>Available steps: Holidays, WorkSchedule, CreateTypes, EditTypes, Eligibility, EffectiveAsOf, Balances</p>
 
@@ -262,7 +262,7 @@
 </thead><tbody>
 <tr>
 <td>person.unauthorizedAction</td>
-<td>Throws if not admin make request.</td>
+<td>Throws if request is not made by admin.</td>
 </tr>
 </tbody></table>
 
@@ -293,7 +293,7 @@
 </thead><tbody>
 <tr>
 <td>person.unauthorizedAction</td>
-<td>Throws if not admin make request.</td>
+<td>Throws if request is not made by admin.</td>
 </tr>
 </tbody></table>
 
@@ -387,7 +387,7 @@
 <td>id</td>
 <td>F</td>
 <td>String</td>
-<td>If id didn&rsquo;t exist it is creation, else it is update.</td>
+<td>If id doesn&rsquo;t exist it is creation, if exists it is update.</td>
 </tr>
 <tr>
 <td>name</td>
@@ -417,7 +417,7 @@
 <td>isDeletion</td>
 <td>F</td>
 <td>String</td>
-<td>If true holiday will be deleted</td>
+<td>If true, holiday will be deleted.</td>
 </tr>
 </tbody></table>
 
@@ -431,7 +431,7 @@
 </thead><tbody>
 <tr>
 <td>person.unauthorizedAction</td>
-<td>Throws if not admin make request.</td>
+<td>Throws if request is not made by admin.</td>
 </tr>
 </tbody></table>
 
@@ -489,19 +489,19 @@
 </thead><tbody>
 <tr>
 <td>person.unauthorizedAction</td>
-<td>Throws if not admin updating policy.</td>
+<td>Throws if policy is updating not by admin.</td>
 </tr>
 <tr>
 <td>timeOffPolicy.invalidWorkDaysFormat</td>
-<td>Throws if workDays field have not allowed values.</td>
+<td>Throws if workDays field value is not allowed.</td>
 </tr>
 <tr>
 <td>timeOffPolicy.invalidWorkDayHoursFormat</td>
-<td>Throws if workDayHours field have not allowed value.</td>
+<td>Throws if workDayHours field value is not allowed.</td>
 </tr>
 <tr>
 <td>timeOffPolicy.timeOffPolicyNotFound</td>
-<td>Throws if not exists policy with this id.</td>
+<td>Throws if policy with this id does not exist.</td>
 </tr>
 </tbody></table>
 
@@ -520,8 +520,8 @@
     </span><span class="nt">"effectiveAsOf"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-01"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Setup day when employee time off balance will be correct and when time
-off start accuring.</p>
+<p>Setups day when employee time off balance will be correct and when time
+off will start accuring.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -555,7 +555,7 @@ off start accuring.</p>
 </thead><tbody>
 <tr>
 <td>person.unauthorizedAction</td>
-<td>Throws if not admin make request.</td>
+<td>Throws if request is not made by admin.</td>
 </tr>
 </tbody></table>
 
@@ -602,7 +602,7 @@ off start accuring.</p>
 </thead><tbody>
 <tr>
 <td>person.unauthorizedAction</td>
-<td>Throws if not admin make request.</td>
+<td>Throws if request is not made by admin.</td>
 </tr>
 </tbody></table>
 
@@ -647,7 +647,7 @@ off start accuring.</p>
 </thead><tbody>
 <tr>
 <td>person.unauthorizedAction</td>
-<td>Throws if not admin make request.</td>
+<td>Throws if request is not made by admin.</td>
 </tr>
 <tr>
 <td>timeOffPolicy.policyTypeNotFound</td>
@@ -756,7 +756,7 @@ off start accuring.</p>
 </thead><tbody>
 <tr>
 <td>person.unauthorizedAction</td>
-<td>Throws if not admin make request.</td>
+<td>Throws if request is not made by admin.</td>
 </tr>
 <tr>
 <td>timeOffPolicy.policyTypeNotFound</td>
@@ -899,7 +899,7 @@ off start accuring.</p>
 </thead><tbody>
 <tr>
 <td>person.unauthorizedAction</td>
-<td>Throws if not admin make request.</td>
+<td>Throws if request is not made by admin.</td>
 </tr>
 </tbody></table>
 
@@ -925,7 +925,7 @@ off start accuring.</p>
 </thead><tbody>
 <tr>
 <td>person.unauthorizedAction</td>
-<td>Throws if not admin make request.</td>
+<td>Throws if request is not made by admin.</td>
 </tr>
 </tbody></table>
 
@@ -971,7 +971,7 @@ off start accuring.</p>
 </thead><tbody>
 <tr>
 <td>person.unauthorizedAction</td>
-<td>Throws if not admin make request.</td>
+<td>Throws if request is not made by admin.</td>
 </tr>
 </tbody></table>
 
@@ -1003,7 +1003,7 @@ off start accuring.</p>
 </thead><tbody>
 <tr>
 <td>person.unauthorizedAction</td>
-<td>Throws if not admin make request.</td>
+<td>Throws if request is not made by admin.</td>
 </tr>
 </tbody></table>
 
@@ -1071,7 +1071,7 @@ off start accuring.</p>
 </thead><tbody>
 <tr>
 <td>person.unauthorizedAction</td>
-<td>Throws if not admin make request.</td>
+<td>Throws if request is not made by admin.</td>
 </tr>
 </tbody></table>
 
