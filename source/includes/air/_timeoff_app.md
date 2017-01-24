@@ -26,7 +26,7 @@ name | F | String | "Default" if not specified.
 
  Id  | Description
 ---- | -----------
-person.unauthorizedAction | Throws if not admin make request.
+person.unauthorizedAction | Throws if request is not made by admin.
 
 
 
@@ -50,7 +50,7 @@ Deletes policy and returns remaining policyIds.
 
  Id  | Description
 ---- | -----------
-person.unauthorizedAction | Throws if not admin make request.
+person.unauthorizedAction | Throws if request is not made by admin.
 
 
 ## Get policy
@@ -77,8 +77,8 @@ Returns policy by id.
 
  Id  | Description
 ---- | -----------
-person.unauthorizedAction | Throws if not admin make request.
-timeOffPolicy.timeOffPolicyNotFound | Throws if not exists policy with this id.
+person.unauthorizedAction | Throws if request is not made by admin.
+timeOffPolicy.timeOffPolicyNotFound | Throws if policy with this id does not exist.
 
 
 ## Get policies setup progress
@@ -93,7 +93,7 @@ timeOffPolicy.timeOffPolicyNotFound | Throws if not exists policy with this id.
   }]
 ```
 
-Get all company policies and they steps.
+Get all company policies and their steps.
 
 Available steps: Holidays, WorkSchedule, CreateTypes, EditTypes, Eligibility, EffectiveAsOf, Balances
 
@@ -105,7 +105,7 @@ Available steps: Holidays, WorkSchedule, CreateTypes, EditTypes, Eligibility, Ef
 
  Id  | Description
 ---- | -----------
-person.unauthorizedAction | Throws if not admin make request.
+person.unauthorizedAction | Throws if request is not made by admin.
 
 
 
@@ -131,7 +131,7 @@ Get employees with assigned policies.
 
  Id  | Description
 ---- | -----------
-person.unauthorizedAction | Throws if not admin make request.
+person.unauthorizedAction | Throws if request is not made by admin.
 
 
 
@@ -201,18 +201,18 @@ custom | T | [HolidayMutation] | Array of mutations for custom holidays.
 
 Field | Required|  Type  | Description
 --------- | ------- | ------ | -----------
-id | F | String | If id didn't exist it is creation, else it is update.
+id | F | String | If id doesn't exist it is creation, if exists it is update.
 name | F | String |
 startDate | F | String | yyyy-MM-dd
 endDate | F | String | yyyy-MM-dd
 isEnabled | F | String |
-isDeletion | F | String | If true holiday will be deleted
+isDeletion | F | String | If true, holiday will be deleted.
 
 ### Errors
 
  Id  | Description
 ---- | -----------
-person.unauthorizedAction | Throws if not admin make request.
+person.unauthorizedAction | Throws if request is not made by admin.
 
 ---
 
@@ -246,10 +246,10 @@ workDays | T | [Int] |
 
  Id  | Description
 ---- | -----------
-person.unauthorizedAction | Throws if not admin updating policy.
-timeOffPolicy.invalidWorkDaysFormat | Throws if workDays field have not allowed values.
-timeOffPolicy.invalidWorkDayHoursFormat | Throws if workDayHours field have not allowed value.
-timeOffPolicy.timeOffPolicyNotFound | Throws if not exists policy with this id.
+person.unauthorizedAction | Throws if policy is updating not by admin.
+timeOffPolicy.invalidWorkDaysFormat | Throws if workDays field value is not allowed.
+timeOffPolicy.invalidWorkDayHoursFormat | Throws if workDayHours field value is not allowed.
+timeOffPolicy.timeOffPolicyNotFound | Throws if policy with this id does not exist.
 ---
 
 ## Setup policy start date
@@ -266,8 +266,8 @@ timeOffPolicy.timeOffPolicyNotFound | Throws if not exists policy with this id.
   }
 ```
 
-Setup day when employee time off balance will be correct and when time
-off start accuring.
+Setups day when employee time off balance will be correct and when time
+off will start accuring.
 
 ### HTTP Request
 
@@ -283,7 +283,7 @@ effectiveAsOf | T | String | yyyy-MM-dd
 
  Id  | Description
 ---- | -----------
-person.unauthorizedAction | Throws if not admin make request.
+person.unauthorizedAction | Throws if request is not made by admin.
 
 ---
 
@@ -325,7 +325,7 @@ Get all policy types.
 
  Id  | Description
 ---- | -----------
-person.unauthorizedAction | Throws if not admin make request.
+person.unauthorizedAction | Throws if request is not made by admin.
 
 
 ## Get type
@@ -364,7 +364,7 @@ Get policy type by id.
 
  Id  | Description
 ---- | -----------
-person.unauthorizedAction | Throws if not admin make request.
+person.unauthorizedAction | Throws if request is not made by admin.
 timeOffPolicy.policyTypeNotFound | Throws if not exist policy type with this id.
 
 
@@ -421,8 +421,8 @@ isDeletion | T | Boolean| Delete policy if specified.
 
  Id  | Description
 ---- | -----------
-person.unauthorizedAction | Throws if not admin make request.
-timeOffPolicy.policyTypeNotFound | Throws if was attempt to update not existing policy type.
+person.unauthorizedAction | Throws if request is not made by admin.
+timeOffPolicy.policyTypeNotFound | Throws if there was attempt to update not existing policy type.
 
 
 ## Setup specific type
@@ -461,7 +461,7 @@ Parameter | Required|  Type  | Description
 --------- | ------- | ------ | -----------
 name | T | String |
 policyTypeName | T | String | Holiday, Sickness, Custom
-allowance | T | Boolean | How much days can get employee per year.
+allowance | T | Boolean | How much days employee can get per year.
 accrualFrequency | T | String | Yearly, Monthly, Quarterly, SemiMonthly, BiWeekly, Weekly.
 accrualStartDate | T | String | 2017-02-03.
 isNeedToRenew | T | Boolean |
@@ -478,7 +478,7 @@ isUnlimited | T | Boolean | If specified other fields ignored.
 
  Id  | Description
 ---- | -----------
-person.unauthorizedAction | Throws if not admin make request.
+person.unauthorizedAction | Throws if request is not made by admin.
 
 
 
@@ -496,7 +496,7 @@ Finish step.
 
  Id  | Description
 ---- | -----------
-person.unauthorizedAction | Throws if not admin make request.
+person.unauthorizedAction | Throws if request is not made by admin.
 
 ---
 
@@ -522,7 +522,7 @@ employeeIds | T | [String] | Sequence of employee ids assigned to policy.
 
  Id  | Description
 ---- | -----------
-person.unauthorizedAction | Throws if not admin make request.
+person.unauthorizedAction | Throws if request is not made by admin.
 
 ---
 
@@ -548,7 +548,7 @@ Get total allowance for all employees.
 
  Id  | Description
 ---- | -----------
-person.unauthorizedAction | Throws if not admin make request.
+person.unauthorizedAction | Throws if request is not made by admin.
 
 
 
@@ -579,4 +579,4 @@ remaining | T | Int | Balance remaining on first day.
 
  Id  | Description
 ---- | -----------
-person.unauthorizedAction | Throws if not admin make request.
+person.unauthorizedAction | Throws if request is not made by admin.
