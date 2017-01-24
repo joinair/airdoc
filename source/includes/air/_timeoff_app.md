@@ -44,7 +44,7 @@ Deletes policy and returns remaining policyIds.
 
 ### HTTP Request
 
-`DELETE /apps/timeoff/policies/:id:`
+`DELETE /apps/timeoff/policies/:policy_id:`
 
 ### Errors
 
@@ -71,14 +71,14 @@ Returns policy by id.
 
 ### HTTP Request
 
-`GET /apps/timeoff/policies/:id:`
+`GET /apps/timeoff/policies/:policy_id:`
 
 ### Errors
 
  Id  | Description
 ---- | -----------
 person.unauthorizedAction | Throws if not admin make request.
-timeOffPolicy.timeOffPolicyNotFond | Throws if not exists policy with this id.
+timeOffPolicy.timeOffPolicyNotFound | Throws if not exists policy with this id.
 
 
 ## Get policies setup progress
@@ -163,7 +163,7 @@ Returns regular and custom policy holidays.
 
 ### HTTP Request
 
-`GET /apps/timeoff/policies/:id:/holidays`
+`GET /apps/timeoff/policies/:policy_id:/holidays`
 
 
 
@@ -188,7 +188,7 @@ Update company holidays.
 
 ### HTTP Request
 
-`POST /apps/timeoff/policies/:id:/holidays`
+`POST /apps/timeoff/policies/:policy_id:/holidays`
 
 ###  Parameters
 
@@ -233,7 +233,7 @@ Updates work day hours and week days off, returns policy.
 
 ### HTTP Request
 
-`POST /apps/timeoff/policies/:id:/schedule`
+`POST /apps/timeoff/policies/:policy_id:/schedule`
 
 ###  Parameters
 
@@ -247,7 +247,9 @@ workDays | T | [Int] |
  Id  | Description
 ---- | -----------
 person.unauthorizedAction | Throws if not admin updating policy.
-
+timeOffPolicy.invalidWorkDaysFormat | Throws if workDays field have not allowed values.
+timeOffPolicy.invalidWorkDayHoursFormat | Throws if workDayHours field have not allowed value.
+timeOffPolicy.timeOffPolicyNotFound | Throws if not exists policy with this id.
 ---
 
 ## Setup policy start date
@@ -269,7 +271,7 @@ off start accuring.
 
 ### HTTP Request
 
-`POST /apps/timeoff/policies/:id:/effective`
+`POST /apps/timeoff/policies/:policy_id:/effective`
 
 ###  Parameters
 
@@ -317,7 +319,7 @@ Get all policy types.
 
 ### HTTP Request
 
-`GET: /apps/timeoff/policies/:id:/types`
+`GET: /apps/timeoff/policies/:policy_id:/types`
 
 ### Errors
 
@@ -325,6 +327,45 @@ Get all policy types.
 ---- | -----------
 person.unauthorizedAction | Throws if not admin make request.
 
+
+## Get type
+
+> Returns JSON structured like this:
+
+```json
+  {
+      "types": {
+          "id": "uuid",
+          "name": "Holiday",
+          "allowance": 20,
+          "accrualFrequency": "Yearly",
+          "accrualStartDate": "2017-02-01",
+          "isNeedToRenew": "true",
+          "renewDateMonth": "12",
+          "renewDateDay": "31",
+          "isCarriedOver": "true",
+          "carryOverLimitDays": "10",
+          "waitingPeriodEnabled": "true",
+          "waitingPeriod": "90",
+          "isAccruedOnWait": "false",
+          "isUnlimited": "false",
+          "isActive": "true"
+      }
+  }
+```
+
+Get policy type by id.
+
+### HTTP Request
+
+`GET: /apps/timeoff/policies/:policy_id:/types/:type_id:`
+
+### Errors
+
+ Id  | Description
+---- | -----------
+person.unauthorizedAction | Throws if not admin make request.
+timeOffPolicy.policyTypeNotFound | Throws if not exist policy type with this id.
 
 
 ## Setup types
@@ -357,7 +398,7 @@ Create policy types.
 
 ### HTTP Request
 
-`POST /apps/timeoff/policies/:id:/types`
+`POST /apps/timeoff/policies/:policy_id:/types`
 
 ###  Parameters
 
@@ -381,7 +422,7 @@ isDeletion | T | Boolean| Delete policy if specified.
  Id  | Description
 ---- | -----------
 person.unauthorizedAction | Throws if not admin make request.
-
+timeOffPolicy.policyTypeNotFound | Throws if was attempt to update not existing policy type.
 
 
 ## Setup specific type
@@ -418,6 +459,8 @@ Edit specific policy type by id.
 
 Parameter | Required|  Type  | Description
 --------- | ------- | ------ | -----------
+name | T | String |
+policyTypeName | T | String | Holiday, Sickness, Custom
 allowance | T | Boolean | How much days can get employee per year.
 accrualFrequency | T | String | Yearly, Monthly, Quarterly, SemiMonthly, BiWeekly, Weekly.
 accrualStartDate | T | String | 2017-02-03.
