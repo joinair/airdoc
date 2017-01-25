@@ -311,7 +311,7 @@ person.unauthorizedAction | Throws if request is not made by admin.
           "waitingPeriod": "90",
           "isAccruedOnWait": "false",
           "isUnlimited": "false",
-          "isActive": "true"
+          "isEnabled": "true"
       }]
   }
 ```
@@ -351,7 +351,7 @@ person.unauthorizedAction | Throws if request is not made by admin.
           "waitingPeriod": "90",
           "isAccruedOnWait": "false",
           "isUnlimited": "false",
-          "isActive": "true"
+          "isEnabled": "true"
       }
   }
 ```
@@ -392,7 +392,7 @@ timeOffPolicy.policyTypeNotFound | Throws if not exist policy type with this id.
           "waitingPeriod": "90",
           "isAccruedOnWait": "false",
           "isUnlimited": "false",
-          "isActive": "true"
+          "isEnabled": "true"
       }]
   }
 ```
@@ -449,7 +449,7 @@ timeOffPolicy.policyTypeNotFound | Throws if there was attempt to update not exi
     "waitingPeriod": "90",
     "isAccruedOnWait": "false",
     "isUnlimited": "false",
-    "isActive": "true"
+    "isEnabled": "true"
   }
 ```
 
@@ -477,6 +477,7 @@ waitingPeriodEnabled | T | Boolean|
 waitingPeriod | F | Int | Only if waitingPeriodEnabled = true.
 isAccruedOnWait | F | Boolean | Only if waitingPeriodEnabled = true.
 isUnlimited | T | Boolean | If specified other fields ignored.
+isEnabled| T | Boolean | Enable or disable task for policy.
 
 ### Errors
 
