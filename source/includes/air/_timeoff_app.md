@@ -412,8 +412,8 @@ custom | T | [PolicyTypeMutation] | Array of type mutations.
 
 Field | Required|  Type  | Description
 --------- | ------- | ------ | -----------
-id | T | String | Create new policy type if not specified.
-name | T | String | Type name.
+id | F | String | Create new policy type if not specified.
+name | F | String | Type name.
 isDeletion | T | Boolean| Delete policy if specified.
 
 
