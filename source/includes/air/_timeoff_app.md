@@ -297,7 +297,8 @@ person.unauthorizedAction | Throws if request is not made by admin.
   {
       "types": [{
           "id": "uuid",
-          "name": "Holiday",
+          "name": "My awesome type",
+          "policyTypeName": "Custom",
           "allowance": 20,
           "accrualFrequency": "Yearly",
           "accrualStartDate": "2017-02-01",
@@ -336,7 +337,8 @@ person.unauthorizedAction | Throws if request is not made by admin.
   {
       "types": {
           "id": "uuid",
-          "name": "Holiday",
+          "name": "My awesome type",
+          "policyTypeName": "Custom",
           "allowance": 20,
           "accrualFrequency": "Yearly",
           "accrualStartDate": "2017-02-01",
@@ -376,7 +378,8 @@ timeOffPolicy.policyTypeNotFound | Throws if not exist policy type with this id.
   {
       "types": [{
           "id": "uuid",
-          "name": "Holiday",
+          "name": "My awesome type",
+          "policyTypeName": "Custom",
           "allowance": 20,
           "accrualFrequency": "Yearly",
           "accrualStartDate": "2017-02-01",
@@ -404,8 +407,8 @@ Create policy types.
 
 Parameter | Required|  Type  | Description
 --------- | ------- | ------ | -----------
-enableHolidays | T | Boolean | Create and enable Holidays type.
-enableSickness | T | Boolean | Create and enable Sickness type.
+enableHolidays | T | Boolean | Enable Holidays type.
+enableSickness | T | Boolean | Enable Sickness type.
 custom | T | [PolicyTypeMutation] | Array of type mutations.
 
 **PolicyTypeMutation:**
@@ -432,7 +435,8 @@ timeOffPolicy.policyTypeNotFound | Throws if there was attempt to update not exi
 ```json
   {
     "id": "uuid",
-    "name": "Holiday",
+    "name": "My awesome type",
+    "policyTypeName": "Custom",
     "allowance": 20,
     "accrualFrequency": "Yearly",
     "accrualStartDate": "2017-02-01",
