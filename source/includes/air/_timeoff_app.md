@@ -417,6 +417,7 @@ Field | Required|  Type  | Description
 --------- | ------- | ------ | -----------
 id | F | String | Create new policy type if not specified.
 name | F | String | Type name.
+isEnabled | F | String |
 isDeletion | T | Boolean| Delete policy if specified.
 
 
