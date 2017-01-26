@@ -407,9 +407,7 @@ Create policy types.
 
 Parameter | Required|  Type  | Description
 --------- | ------- | ------ | -----------
-enableHolidays | T | Boolean | Enable Holidays type.
-enableSickness | T | Boolean | Enable Sickness type.
-custom | T | [PolicyTypeMutation] | Array of type mutations.
+mutations | T | [PolicyTypeMutation] | Array of type mutations.
 
 **PolicyTypeMutation:**
 
@@ -417,7 +415,7 @@ Field | Required|  Type  | Description
 --------- | ------- | ------ | -----------
 id | F | String | Create new policy type if not specified.
 name | F | String | Type name.
-isEnabled | F | String |
+isEnabled | T | String |
 isDeletion | T | Boolean| Delete policy if specified.
 
 
@@ -427,8 +425,8 @@ isDeletion | T | Boolean| Delete policy if specified.
 ---- | -----------
 person.unauthorizedAction | Throws if request is not made by admin.
 timeOffPolicy.policyTypeNotFound | Throws if there was attempt to update not existing policy type.
-
-
+timeOffPolicy.canNotUpdateType | Throws if was attempt to update predefined type name.
+timeOffPolicy.canNotDeleteType | Throws if was attempt to delete predefined type.
 ## Setup specific type
 
 > Returns JSON structured like this:
