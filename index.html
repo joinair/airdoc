@@ -299,7 +299,28 @@
 
 <hr>
 
-<h2 id="get-holidays">Get holidays</h2>
+<h2 id="get-regular-holidays">Get regular holidays</h2>
+
+<blockquote>
+<p>Returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"Scotland"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"uuid"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Day of my awesomeness"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"startDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-01"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"endDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-02"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"isEnabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+      </span><span class="p">}]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Returns regular holidays.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET /apps/timeoff/policies/holidays</code></p>
+
+<h2 id="get-policy-holidays">Get policy holidays</h2>
 
 <blockquote>
 <p>Returns JSON structured like this:</p>
@@ -318,7 +339,7 @@
       </span><span class="p">}]</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Returns regular and custom policy holidays.</p>
+<p>Returns regular and custom holidays attached to policy.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -861,7 +882,7 @@ off will start accuring.</p>
 <td>accrualFrequency</td>
 <td>T</td>
 <td>String</td>
-<td>Yearly, Monthly, Quarterly, SemiMonthly, BiWeekly, Weekly.</td>
+<td>Yearly, Monthly, Weekly.</td>
 </tr>
 <tr>
 <td>accrualStartDate</td>
