@@ -305,13 +305,10 @@
 <p>Returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json"><code><span class="w">  </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"regular"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
-          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"uuid"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New Years Day"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"startDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-01"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"endDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-02"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"isEnabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-      </span><span class="p">}],</span><span class="w">
+      </span><span class="nt">"regular"</span><span class="p">:{</span><span class="w">
+        </span><span class="nt">"ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">"uuid"</span><span class="p">],</span><span class="w">
+        </span><span class="nt">"country"</span><span class="w"> </span><span class="p">:</span><span class="s2">"Scotland"</span><span class="w">
+       </span><span class="p">},</span><span class="w">
       </span><span class="nt">"custom"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
           </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"uuid"</span><span class="p">,</span><span class="w">
           </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Day of my awesomeness"</span><span class="p">,</span><span class="w">
@@ -333,7 +330,10 @@
 <p>Returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json"><code><span class="w">  </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"regular"</span><span class="p">:</span><span class="w">  </span><span class="p">[</span><span class="s2">"uuid1"</span><span class="p">,</span><span class="w"> </span><span class="s2">"uuid2"</span><span class="p">],</span><span class="w">
+     </span><span class="nt">"regular"</span><span class="p">:{</span><span class="w">
+        </span><span class="nt">"ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">"uuid"</span><span class="p">],</span><span class="w">
+        </span><span class="nt">"country"</span><span class="w"> </span><span class="p">:</span><span class="s2">"Scotland"</span><span class="w">
+     </span><span class="p">},</span><span class="w">
     </span><span class="nt">"custom"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"uuid"</span><span class="p">,</span><span class="w">
        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Day of my awesomeness"</span><span class="p">,</span><span class="w">
@@ -362,7 +362,7 @@
 <tr>
 <td>regular</td>
 <td>T</td>
-<td>[String]</td>
+<td>RegularHolidaysMutation</td>
 <td>Array of enabled regular holidays.</td>
 </tr>
 <tr>
@@ -370,6 +370,36 @@
 <td>T</td>
 <td>[HolidayMutation]</td>
 <td>Array of mutations for custom holidays.</td>
+</tr>
+</tbody></table>
+
+<p><strong>RegularHolidaysMutation:</strong></p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Required</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>country</td>
+<td>F</td>
+<td>String</td>
+<td>England &amp; Wales; Scotland; Northern Ireland</td>
+</tr>
+<tr>
+<td>disable</td>
+<td>T</td>
+<td>Seq[String]</td>
+<td>Array of holiday ids to disable.</td>
+</tr>
+<tr>
+<td>enable</td>
+<td>T</td>
+<td>Seq[String]</td>
+<td>Array of holiday ids to enable.</td>
 </tr>
 </tbody></table>
 
