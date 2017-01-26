@@ -169,7 +169,7 @@ Returns regular holidays.
   {
       "regular":{
         "ids": [ "uuid"],
-        "country" :"Scotland"
+        "zone" :"Scotland"
        },
       "custom": [{
           "id": "uuid",
@@ -197,7 +197,7 @@ Returns regular and custom holidays attached to policy.
   {
      "regular":{
         "ids": [ "uuid"],
-        "country" :"Scotland"
+        "zone" :"Scotland"
      },
     "custom": [{
        "id": "uuid",
@@ -226,7 +226,7 @@ custom | T | [HolidayMutation] | Array of mutations for custom holidays.
 
 Field | Required|  Type  | Description
 --------- | ------- | ------ | -----------
-country | F | String | England & Wales; Scotland; Northern Ireland
+zone | F | String | England & Wales; Scotland; Northern Ireland
 disable | T | Seq[String] | Array of holiday ids to disable.
 enable | T | Seq[String] |  Array of holiday ids to enable.
 
