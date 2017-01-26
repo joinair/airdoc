@@ -136,19 +136,41 @@ person.unauthorizedAction | Throws if request is not made by admin.
 
 
 ---
-## Get holidays
+## Get regular holidays
 
 > Returns JSON structured like this:
 
 ```json
   {
-      "regular": [{
+      "Scotland": [{
           "id": "uuid",
-          "name": "New Years Day",
+          "name": "Day of my awesomeness",
           "startDate": "2017-01-01",
           "endDate": "2017-01-02",
           "isEnabled": true
       }],
+      "England & Wales": []
+
+  }
+```
+
+Returns regular holidays.
+
+### HTTP Request
+
+`GET /apps/timeoff/policies/holidays`
+
+
+## Get policy holidays
+
+> Returns JSON structured like this:
+
+```json
+  {
+      "regular":{
+        "ids": [ "uuid"],
+        "country" :"Scotland"
+       },
       "custom": [{
           "id": "uuid",
           "name": "Day of my awesomeness",
@@ -159,7 +181,7 @@ person.unauthorizedAction | Throws if request is not made by admin.
   }
 ```
 
-Returns regular and custom policy holidays.
+Returns regular and custom holidays attached to policy.
 
 ### HTTP Request
 
@@ -173,7 +195,10 @@ Returns regular and custom policy holidays.
 
 ```json
   {
-    "regular":  ["uuid1", "uuid2"],
+     "regular":{
+        "ids": [ "uuid"],
+        "country" :"Scotland"
+     },
     "custom": [{
        "id": "uuid",
        "name": "Day of my awesomeness",
@@ -194,8 +219,16 @@ Update company holidays.
 
 Parameter | Required|  Type  | Description
 --------- | ------- | ------ | -----------
-regular | T | [String] | Array of enabled regular holidays.
+regular | T | RegularHolidaysMutation | Array of enabled regular holidays.
 custom | T | [HolidayMutation] | Array of mutations for custom holidays.
+
+**RegularHolidaysMutation:**
+
+Field | Required|  Type  | Description
+--------- | ------- | ------ | -----------
+country | F | String | England & Wales; Scotland; Northern Ireland
+disable | T | Seq[String] | Array of holiday ids to disable.
+enable | T | Seq[String] |  Array of holiday ids to enable.
 
 **HolidayMutation:**
 
@@ -465,7 +498,7 @@ Parameter | Required|  Type  | Description
 name | T | String |
 policyTypeName | T | String | Holiday, Sickness, Custom
 allowance | T | Boolean | How much days employee can get per year.
-accrualFrequency | T | String | Yearly, Monthly, Quarterly, SemiMonthly, BiWeekly, Weekly.
+accrualFrequency | T | String | Yearly, Monthly, Weekly.
 accrualStartDate | T | String | 2017-02-03.
 isNeedToRenew | T | Boolean |
 renewDateMonth | F | Int | Only if isNeedToRenew = true.
