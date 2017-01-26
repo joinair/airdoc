@@ -700,19 +700,7 @@ off will start accuring.</p>
 </tr>
 </thead><tbody>
 <tr>
-<td>enableHolidays</td>
-<td>T</td>
-<td>Boolean</td>
-<td>Enable Holidays type.</td>
-</tr>
-<tr>
-<td>enableSickness</td>
-<td>T</td>
-<td>Boolean</td>
-<td>Enable Sickness type.</td>
-</tr>
-<tr>
-<td>custom</td>
+<td>mutations</td>
 <td>T</td>
 <td>[PolicyTypeMutation]</td>
 <td>Array of type mutations.</td>
@@ -743,7 +731,7 @@ off will start accuring.</p>
 </tr>
 <tr>
 <td>isEnabled</td>
-<td>F</td>
+<td>T</td>
 <td>String</td>
 <td></td>
 </tr>
@@ -770,6 +758,14 @@ off will start accuring.</p>
 <tr>
 <td>timeOffPolicy.policyTypeNotFound</td>
 <td>Throws if there was attempt to update not existing policy type.</td>
+</tr>
+<tr>
+<td>timeOffPolicy.canNotUpdateType</td>
+<td>Throws if was attempt to update predefined type name.</td>
+</tr>
+<tr>
+<td>timeOffPolicy.canNotDeleteType</td>
+<td>Throws if was attempt to delete predefined type.</td>
 </tr>
 </tbody></table>
 
