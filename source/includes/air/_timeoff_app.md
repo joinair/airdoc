@@ -227,7 +227,7 @@ custom | T | [HolidayMutation] | Array of mutations for custom holidays.
 Field | Required|  Type  | Description
 --------- | ------- | ------ | -----------
 zone | F | String | England & Wales; Scotland; Northern Ireland
-disable | T | Seq[String] | Array of holiday ids to disable.
+disable | T | Seq[String] | Array .of holiday ids to disable.
 enable | T | Seq[String] |  Array of holiday ids to enable.
 
 **HolidayMutation:**
@@ -340,7 +340,7 @@ person.unauthorizedAction | Throws if request is not made by admin.
           "renewDateDay": "31",
           "isCarriedOver": "true",
           "carryOverLimitDays": "10",
-          "waitingPeriodEnabled": "true",
+          "isWaitingPeriodEnabled": "true",
           "waitingPeriod": "90",
           "isAccruedOnWait": "false",
           "isUnlimited": "false",
@@ -380,7 +380,7 @@ person.unauthorizedAction | Throws if request is not made by admin.
           "renewDateDay": "31",
           "isCarriedOver": "true",
           "carryOverLimitDays": "10",
-          "waitingPeriodEnabled": "true",
+          "isWaitingPeriodEnabled": "true",
           "waitingPeriod": "90",
           "isAccruedOnWait": "false",
           "isUnlimited": "false",
@@ -421,7 +421,7 @@ timeOffPolicy.policyTypeNotFound | Throws if not exist policy type with this id.
           "renewDateDay": "31",
           "isCarriedOver": "true",
           "carryOverLimitDays": "10",
-          "waitingPeriodEnabled": "true",
+          "isWaitingPeriodEnabled": "true",
           "waitingPeriod": "90",
           "isAccruedOnWait": "false",
           "isUnlimited": "false",
@@ -477,7 +477,7 @@ timeOffPolicy.canNotDeleteType | Throws if was attempt to delete predefined type
     "renewDateDay": "31",
     "isCarriedOver": "true",
     "carryOverLimitDays": "10",
-    "waitingPeriodEnabled": "true",
+    "isWaitingPeriodEnabled": "true",
     "waitingPeriod": "90",
     "isAccruedOnWait": "false",
     "isUnlimited": "false",
@@ -505,9 +505,9 @@ renewDateMonth | F | Int | Only if isNeedToRenew = true.
 renewDateDay | F |  Int | Only if isNeedToRenew = true.
 isCarriedOver | T | Boolean |
 carryOverLimitDays | F | Int | Only if isCarriedOver = true.
-waitingPeriodEnabled | T | Boolean|
-waitingPeriod | F | Int | Only if waitingPeriodEnabled = true.
-isAccruedOnWait | F | Boolean | Only if waitingPeriodEnabled = true.
+isWaitingPeriodEnabled | T | Boolean|
+waitingPeriod | F | Int | Only if isWaitingPeriodEnabled = true.
+isAccruedOnWait | F | Boolean | Only if isWaitingPeriodEnabled = true.
 isUnlimited | T | Boolean | If specified other fields ignored.
 isEnabled| T | Boolean | Enable or disable task for policy.
 
