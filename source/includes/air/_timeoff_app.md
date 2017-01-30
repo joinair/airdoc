@@ -142,14 +142,13 @@ person.unauthorizedAction | Throws if request is not made by admin.
 
 ```json
   {
-      "Scotland": [{
+      "scotland": [{
           "id": "uuid",
           "name": "Day of my awesomeness",
           "startDate": "2017-01-01",
-          "endDate": "2017-01-02",
-          "isEnabled": true
+          "endDate": "2017-01-02"
       }],
-      "England & Wales": []
+      "england-and-wales": []
 
   }
 ```
@@ -169,7 +168,7 @@ Returns regular holidays.
   {
       "regular":{
         "ids": [ "uuid"],
-        "zone" :"Scotland"
+        "zone" :"scotland"
        },
       "custom": [{
           "id": "uuid",
@@ -197,7 +196,7 @@ Returns regular and custom holidays attached to policy.
   {
      "regular":{
         "ids": [ "uuid"],
-        "zone" :"Scotland"
+        "zone" :"scotland"
      },
     "custom": [{
        "id": "uuid",
@@ -219,14 +218,14 @@ Update company holidays.
 
 Parameter | Required|  Type  | Description
 --------- | ------- | ------ | -----------
-regular | T | RegularHolidaysMutation | Array of enabled regular holidays.
+regular | F | RegularHolidaysMutation | Array of enabled regular holidays. Not required if regular settings was not changed.
 custom | T | [HolidayMutation] | Array of mutations for custom holidays.
 
 **RegularHolidaysMutation:**
 
 Field | Required|  Type  | Description
 --------- | ------- | ------ | -----------
-zone | F | String | England & Wales; Scotland; Northern Ireland
+zone | F | String | england-and-wales, scotland, northern-ireland
 disable | T | Seq[String] | Array .of holiday ids to disable.
 enable | T | Seq[String] |  Array of holiday ids to enable.
 
@@ -238,8 +237,8 @@ id | F | String | If id doesn't exist it is creation, if exists it is update.
 name | F | String |
 startDate | F | String | yyyy-MM-dd
 endDate | F | String | yyyy-MM-dd
-isEnabled | F | String |
-isDeletion | F | String | If true, holiday will be deleted.
+isEnabled | T | String |
+isDeletion | T | String | If true, holiday will be deleted.
 
 ### Errors
 
