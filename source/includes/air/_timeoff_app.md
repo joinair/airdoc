@@ -225,9 +225,8 @@ custom | T | [HolidayMutation] | Array of mutations for custom holidays.
 
 Field | Required|  Type  | Description
 --------- | ------- | ------ | -----------
-zone | F | String | england-and-wales, scotland, northern-ireland
-disable | T | Seq[String] | Array .of holiday ids to disable.
-enable | T | Seq[String] |  Array of holiday ids to enable.
+zone | T | String | england-and-wales, scotland, northern-ireland
+ids | T | Seq[String] | Array of holiday ids.
 
 **HolidayMutation:**
 
