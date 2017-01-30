@@ -305,14 +305,13 @@
 <p>Returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json"><code><span class="w">  </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"Scotland"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+      </span><span class="nt">"scotland"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
           </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"uuid"</span><span class="p">,</span><span class="w">
           </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Day of my awesomeness"</span><span class="p">,</span><span class="w">
           </span><span class="nt">"startDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-01"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"endDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-02"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"isEnabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+          </span><span class="nt">"endDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-02"</span><span class="w">
       </span><span class="p">}],</span><span class="w">
-      </span><span class="nt">"England &amp; Wales"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+      </span><span class="nt">"england-and-wales"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
 
   </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -330,7 +329,7 @@
 <pre class="highlight json"><code><span class="w">  </span><span class="p">{</span><span class="w">
       </span><span class="nt">"regular"</span><span class="p">:{</span><span class="w">
         </span><span class="nt">"ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">"uuid"</span><span class="p">],</span><span class="w">
-        </span><span class="nt">"zone"</span><span class="w"> </span><span class="p">:</span><span class="s2">"Scotland"</span><span class="w">
+        </span><span class="nt">"zone"</span><span class="w"> </span><span class="p">:</span><span class="s2">"scotland"</span><span class="w">
        </span><span class="p">},</span><span class="w">
       </span><span class="nt">"custom"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
           </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"uuid"</span><span class="p">,</span><span class="w">
@@ -355,7 +354,7 @@
 <pre class="highlight json"><code><span class="w">  </span><span class="p">{</span><span class="w">
      </span><span class="nt">"regular"</span><span class="p">:{</span><span class="w">
         </span><span class="nt">"ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">"uuid"</span><span class="p">],</span><span class="w">
-        </span><span class="nt">"zone"</span><span class="w"> </span><span class="p">:</span><span class="s2">"Scotland"</span><span class="w">
+        </span><span class="nt">"zone"</span><span class="w"> </span><span class="p">:</span><span class="s2">"scotland"</span><span class="w">
      </span><span class="p">},</span><span class="w">
     </span><span class="nt">"custom"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"uuid"</span><span class="p">,</span><span class="w">
@@ -384,9 +383,9 @@
 </thead><tbody>
 <tr>
 <td>regular</td>
-<td>T</td>
+<td>F</td>
 <td>RegularHolidaysMutation</td>
-<td>Array of enabled regular holidays.</td>
+<td>Array of enabled regular holidays. Not required if regular settings was not changed.</td>
 </tr>
 <tr>
 <td>custom</td>
@@ -410,7 +409,7 @@
 <td>zone</td>
 <td>F</td>
 <td>String</td>
-<td>England &amp; Wales; Scotland; Northern Ireland</td>
+<td>england-and-wales, scotland, northern-ireland</td>
 </tr>
 <tr>
 <td>disable</td>
@@ -462,13 +461,13 @@
 </tr>
 <tr>
 <td>isEnabled</td>
-<td>F</td>
+<td>T</td>
 <td>String</td>
 <td></td>
 </tr>
 <tr>
 <td>isDeletion</td>
-<td>F</td>
+<td>T</td>
 <td>String</td>
 <td>If true, holiday will be deleted.</td>
 </tr>
