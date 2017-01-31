@@ -115,7 +115,7 @@ person.unauthorizedAction | Throws if request is not made by admin.
 
 ```json
   [{
-    "employeeId": "some_uuid",
+    "profileId": "some_uuid",
     "policyId": "some_uuid",
     "policyName": "My luxury policy"
   }]
@@ -568,7 +568,7 @@ person.unauthorizedAction | Throws if request is not made by admin.
 
 ```json
   [{
-    "employeeId": "uuid",
+    "profileId": "uuid",
     "totalAllowance": 100
   }]
 ```
