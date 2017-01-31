@@ -551,7 +551,7 @@ Setup policy eligibility.
 
 Parameter | Required|  Type  | Description
 --------- | ------- | ------ | -----------
-employeeIds | T | [String] | Sequence of employee ids assigned to policy.
+profileIds | T | [String] | Sequence of employee ids assigned to policy.
 
 ### Errors
 
@@ -562,14 +562,15 @@ person.unauthorizedAction | Throws if request is not made by admin.
 ---
 
 
-## Get total allowance
+## Get total allowance and remains
 
 > Returns JSON structured like this:
 
 ```json
   [{
     "profileId": "uuid",
-    "totalAllowance": 100
+    "totalAllowance": 100,
+    "remain": 100
   }]
 ```
 
@@ -608,7 +609,7 @@ balances | T | [Balance] | Balance config for each employee.
 Field | Required|  Type  | Description
 ----- | ------- | ------ | -----------
 profileId | T | String | UUID
-remaining | T | Int | Balance remaining on first day.
+remaining | T |  Int   | Balance remaining on first day.
 
 ### Errors
 
