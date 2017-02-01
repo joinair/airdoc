@@ -161,7 +161,6 @@ Get policy which assigned on current profile.
 
  Id  | Description
 ---- | -----------
-person.unauthorizedAction | Throws if request is not made by admin.
 timeOffPolicy.timeOffPolicyNotFound | Throws if no one policy not assigned for current profile.
 
 ---
