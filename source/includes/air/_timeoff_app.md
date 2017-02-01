@@ -63,7 +63,8 @@ person.unauthorizedAction | Throws if request is not made by admin.
     "name": "Default",
     "workDays": [1, 2, 3, 4, 5],
     "workDayHours": 8,
-    "effectiveAsOf": "2017-01-01"
+    "effectiveAsOf": "2017-01-01",
+    "isConfigured": false
   }
 ```
 
@@ -134,6 +135,34 @@ Get employees with assigned policies.
 person.unauthorizedAction | Throws if request is not made by admin.
 
 
+
+## Get policy for current profile
+
+> Returns JSON structured like this:
+
+```json
+  {
+      "id": "some_uuid",
+      "name": "Default",
+      "workDays": [1, 2, 3, 4, 5],
+      "workDayHours": 8,
+      "effectiveAsOf": "2017-01-01",
+      "isConfigured": false
+  }
+```
+
+Get policy which assigned on current profile.
+
+### HTTP Request
+
+`GET /apps/timeoff/policies/assigns/profile`
+
+### Errors
+
+ Id  | Description
+---- | -----------
+person.unauthorizedAction | Throws if request is not made by admin.
+timeOffPolicy.timeOffPolicyNotFound | Throws if no one policy not assigned for current profile.
 
 ---
 ## Get regular holidays
@@ -293,7 +322,8 @@ timeOffPolicy.timeOffPolicyNotFound | Throws if policy with this id does not exi
     "name": "Default",
     "workDays": [1, 2, 3, 4, 5],
     "workDayHours": 8,
-    "effectiveAsOf": "2017-01-01"
+    "effectiveAsOf": "2017-01-01",
+    "isConfigured": false
   }
 ```
 
