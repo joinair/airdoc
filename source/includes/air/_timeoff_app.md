@@ -616,3 +616,22 @@ remaining | T |  Int   | Balance remaining on first day.
  Id  | Description
 ---- | -----------
 person.unauthorizedAction | Throws if request is not made by admin.
+
+
+
+
+## Finis types balances step
+
+> Returns nothing:
+
+Finish step.
+
+### HTTP Request
+
+`POST /apps/timeoff/policies/:p_id:/types/balances/finish`
+
+### Errors
+
+ Id  | Description
+---- | -----------
+person.unauthorizedAction | Throws if request is not made by admin.
