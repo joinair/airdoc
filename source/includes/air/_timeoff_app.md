@@ -90,6 +90,7 @@ timeOffPolicy.timeOffPolicyNotFound | Throws if policy with this id does not exi
   [{
     "id": "some_uuid",
     "name": "Policy name",
+    "isConfigured": "Policy name",
     "steps": ["Holidays", "WorkSchedule", "TypesAndRules"]
   }]
 ```
@@ -215,6 +216,37 @@ Returns regular and custom holidays attached to policy.
 `GET /apps/timeoff/policies/:policy_id:/holidays`
 
 
+## Get policies summary
+
+> Returns JSON structured like this:
+
+```json
+  {
+      "amountOfHolidays": 12,
+      "types": [{
+          "id": "some_uuid",
+          "policyTypeName": "Custom",
+          "name": "My custom type"
+      }],
+      "amountOfAssignees": 20,
+      "workDayHours": 8,
+      "workDays": [1, 2, 3, 4, 5],
+      "effectiveAsOf": "2017-01-01"
+  }
+```
+
+Get policy summary by id.
+
+### HTTP Request
+
+`GET /apps/timeoff/policies/:policy_id:/summary`
+
+### Errors
+
+ Id  | Description
+---- | -----------
+person.unauthorizedAction | Throws if request is not made by admin.
+
 
 ## Setup holidays
 
@@ -275,6 +307,42 @@ person.unauthorizedAction | Throws if request is not made by admin.
 
 ---
 
+
+## Update policy name
+
+> Returns JSON structured like this:
+
+```json
+    {
+      "id": "some_uuid",
+      "name": "new name",
+      "workDays": [1, 2, 3, 4, 5],
+      "workDayHours": 8,
+      "effectiveAsOf": "2017-01-01",
+      "isConfigured": false
+    }
+```
+
+Updates policy name and returns policy.
+
+### HTTP Request
+
+`POST /apps/timeoff/policies/:policy_id:/name`
+
+###  Parameters
+
+Parameter | Required|  Type  | Description
+--------- | ------- | ------ | -----------
+name | T | String |
+
+### Errors
+
+ Id  | Description
+---- | -----------
+person.unauthorizedAction | Throws if policy is updating not by admin.
+---
+
+
 ## Setup work schedule
 
 > Returns JSON structured like this:
@@ -284,7 +352,8 @@ person.unauthorizedAction | Throws if request is not made by admin.
     "id": "some_uuid",
     "name": "Default",
     "workDays": [1, 2, 3, 4, 5],
-    "workDayHours": 8
+    "workDayHours": 8,
+    "isConfigured": false
   }
 ```
 
