@@ -764,7 +764,7 @@ It requests time off and returns result request object.
 
 ### HTTP Request
 
-`POST /apps/timeoff`
+`POST /apps/timeoff/requests`
 
 ###  Parameters
 
@@ -785,3 +785,47 @@ comment   | F       | String | Optional comment.
  Id  | Description
 ---- | -----------
 timeOffPolicy.policyTypeNotFound | Throws if there was attempt to request with not existing policy type.
+timeOffPolicy.notFullyConfigured | Throws if was attempt to book time off in not fully configured policy.
+timeOff.notAvailableYet | Throws if was attempt to book time before allowed period (before effectiveAsOf or before end of waitingPeriod).
+timeOffPolicy.invalidTimeOff | Throws if time off request parameters are not valid.
+
+
+
+## Request time off duration
+
+> Returns JSON structured like this:
+
+```json
+  {
+      "days": 5.3,
+      "hours": 42.4
+  }
+```
+
+
+It requests time off and returns result request object.
+
+### HTTP Request
+
+`GET /apps/timeoff/requests/duration`
+
+###  Query Parameters
+
+Parameter | Required|  Type  | Description
+--------- | ------- | ------ | -----------
+profileId | T       | String | Id profile that needs a time off.
+typeId    | T       | String | Id of time off type.
+startDate | T       | String | When time off starts.
+endDate   | T       | String | When time off ends.
+moreThanDay| T       | String | If time off more than day.
+hours     | F       | String | Amount of hours if time off less than day.
+
+
+### Errors
+
+ Id  | Description
+---- | -----------
+timeOffPolicy.policyTypeNotFound | Throws if there was attempt to request with not existing policy type.
+timeOffPolicy.notFullyConfigured | Throws if was attempt to book time off in not fully configured policy.
+timeOff.notAvailableYet | Throws if was attempt to book time before allowed period (before effectiveAsOf or before end of waitingPeriod).
+timeOffPolicy.invalidTimeOff | Throws if time off request parameters are not valid.
