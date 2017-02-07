@@ -767,13 +767,7 @@ It requests time off and returns result request object.
 `POST /apps/timeoff`
 
 ###  Parameters
-case class TimeOffRequestInput(profileId: String,
-                               typeId: String,
-                               startDate: LocalDate,
-                               endDate: LocalDate,
-                               moreThanDay: Boolean,
-                               hours: Option[Double],
-                               comment: Option[String])
+
 Parameter | Required|  Type  | Description
 --------- | ------- | ------ | -----------
 profileId | T       | String | Id profile that needs a time off.
