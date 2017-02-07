@@ -1316,22 +1316,57 @@ off will start accuring.</p>
 
 <h3 id="parameters">Parameters</h3>
 
-<p>case class TimeOffRequestInput(profileId: String,
-                               typeId: String,
-                               startDate: LocalDate,
-                               endDate: LocalDate,
-                               moreThanDay: Boolean,
-                               hours: Option[Double],
-                               comment: Option[String])
-Parameter | Required|  Type  | Description
-&mdash;&mdash;&mdash; | &mdash;&mdash;- | &mdash;&mdash; | &mdash;&mdash;&mdash;&ndash;
-profileId | T       | String | Id profile that needs a time off.
-typeId    | T       | String | Id of time off type.
-startDate | T       | String | When time off starts.
-endDate   | T       | String | When time off ends.
-moreThanDay| T       | String | If time off more than day.
-hours     | F       | String | Amount of hours if time off less than day.
-comment   | F       | String | Optional comment.</p>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>profileId</td>
+<td>T</td>
+<td>String</td>
+<td>Id profile that needs a time off.</td>
+</tr>
+<tr>
+<td>typeId</td>
+<td>T</td>
+<td>String</td>
+<td>Id of time off type.</td>
+</tr>
+<tr>
+<td>startDate</td>
+<td>T</td>
+<td>String</td>
+<td>When time off starts.</td>
+</tr>
+<tr>
+<td>endDate</td>
+<td>T</td>
+<td>String</td>
+<td>When time off ends.</td>
+</tr>
+<tr>
+<td>moreThanDay</td>
+<td>T</td>
+<td>String</td>
+<td>If time off more than day.</td>
+</tr>
+<tr>
+<td>hours</td>
+<td>F</td>
+<td>String</td>
+<td>Amount of hours if time off less than day.</td>
+</tr>
+<tr>
+<td>comment</td>
+<td>F</td>
+<td>String</td>
+<td>Optional comment.</td>
+</tr>
+</tbody></table>
 
 <h3 id="errors">Errors</h3>
 
