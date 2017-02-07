@@ -242,7 +242,7 @@
 <pre class="highlight json"><code><span class="w">  </span><span class="p">[{</span><span class="w">
     </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some_uuid"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Policy name"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"isConfigured"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Policy name"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"isConfigured"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
     </span><span class="nt">"steps"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"Holidays"</span><span class="p">,</span><span class="w"> </span><span class="s2">"WorkSchedule"</span><span class="p">,</span><span class="w"> </span><span class="s2">"TypesAndRules"</span><span class="p">]</span><span class="w">
   </span><span class="p">}]</span><span class="w">
 </span></code></pre>
@@ -1312,7 +1312,7 @@ off will start accuring.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">POST /apps/timeoff</code></p>
+<p><code class="prettyprint">POST /apps/timeoff/requests</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -1379,6 +1379,108 @@ off will start accuring.</p>
 <tr>
 <td>timeOffPolicy.policyTypeNotFound</td>
 <td>Throws if there was attempt to request with not existing policy type.</td>
+</tr>
+<tr>
+<td>timeOffPolicy.notFullyConfigured</td>
+<td>Throws if was attempt to book time off in not fully configured policy.</td>
+</tr>
+<tr>
+<td>timeOff.notAvailableYet</td>
+<td>Throws if was attempt to book time before allowed period (before effectiveAsOf or before end of waitingPeriod).</td>
+</tr>
+<tr>
+<td>timeOffPolicy.invalidTimeOff</td>
+<td>Throws if time off request parameters are not valid.</td>
+</tr>
+</tbody></table>
+
+<h2 id="request-time-off-duration">Request time off duration</h2>
+
+<blockquote>
+<p>Returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"days"</span><span class="p">:</span><span class="w"> </span><span class="mf">5.3</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"hours"</span><span class="p">:</span><span class="w"> </span><span class="mf">42.4</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>It requests time off and returns result request object.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET /apps/timeoff/requests/duration</code></p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>profileId</td>
+<td>T</td>
+<td>String</td>
+<td>Id profile that needs a time off.</td>
+</tr>
+<tr>
+<td>typeId</td>
+<td>T</td>
+<td>String</td>
+<td>Id of time off type.</td>
+</tr>
+<tr>
+<td>startDate</td>
+<td>T</td>
+<td>String</td>
+<td>When time off starts.</td>
+</tr>
+<tr>
+<td>endDate</td>
+<td>T</td>
+<td>String</td>
+<td>When time off ends.</td>
+</tr>
+<tr>
+<td>moreThanDay</td>
+<td>T</td>
+<td>String</td>
+<td>If time off more than day.</td>
+</tr>
+<tr>
+<td>hours</td>
+<td>F</td>
+<td>String</td>
+<td>Amount of hours if time off less than day.</td>
+</tr>
+</tbody></table>
+
+<h3 id="errors">Errors</h3>
+
+<table><thead>
+<tr>
+<th>Id</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>timeOffPolicy.policyTypeNotFound</td>
+<td>Throws if there was attempt to request with not existing policy type.</td>
+</tr>
+<tr>
+<td>timeOffPolicy.notFullyConfigured</td>
+<td>Throws if was attempt to book time off in not fully configured policy.</td>
+</tr>
+<tr>
+<td>timeOff.notAvailableYet</td>
+<td>Throws if was attempt to book time before allowed period (before effectiveAsOf or before end of waitingPeriod).</td>
+</tr>
+<tr>
+<td>timeOffPolicy.invalidTimeOff</td>
+<td>Throws if time off request parameters are not valid.</td>
 </tr>
 </tbody></table>
 
