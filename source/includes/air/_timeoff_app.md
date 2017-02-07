@@ -90,7 +90,7 @@ timeOffPolicy.timeOffPolicyNotFound | Throws if policy with this id does not exi
   [{
     "id": "some_uuid",
     "name": "Policy name",
-    "isConfigured": "Policy name",
+    "isConfigured": false,
     "steps": ["Holidays", "WorkSchedule", "TypesAndRules"]
   }]
 ```
