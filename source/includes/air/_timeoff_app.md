@@ -556,6 +556,9 @@ person.unauthorizedAction | Throws if request is not made by admin.
 timeOffPolicy.policyTypeNotFound | Throws if there was attempt to update not existing policy type.
 timeOffPolicy.canNotUpdateType | Throws if was attempt to update predefined type name.
 timeOffPolicy.canNotDeleteType | Throws if was attempt to delete predefined type.
+
+
+
 ## Setup specific type
 
 > Returns JSON structured like this:
@@ -733,3 +736,58 @@ Finish step.
  Id  | Description
 ---- | -----------
 person.unauthorizedAction | Throws if request is not made by admin.
+
+
+---
+
+
+
+## Request time off
+
+> Returns JSON structured like this:
+
+```json
+  {
+      "id": "uuid",
+      "typeId": "uuid",
+      "status": "Active",
+      "startDate": "2017-02-01",
+      "endDate": "2017-02-01",
+      "moreThanDay": "true",
+      "hours": 1,
+      "comment": "some comment"
+  }
+```
+
+
+It requests time off and returns result request object.
+
+### HTTP Request
+
+`POST /apps/timeoff`
+
+###  Parameters
+case class TimeOffRequestInput(profileId: String,
+                               typeId: String,
+                               startDate: LocalDate,
+                               endDate: LocalDate,
+                               moreThanDay: Boolean,
+                               hours: Option[Double],
+                               comment: Option[String])
+Parameter | Required|  Type  | Description
+--------- | ------- | ------ | -----------
+profileId | T       | String | Id profile that needs a time off.
+typeId    | T       | String | Id of time off type.
+startDate | T       | String | When time off starts.
+endDate   | T       | String | When time off ends.
+moreThanDay| T       | String | If time off more than day.
+hours     | F       | String | Amount of hours if time off less than day.
+comment   | F       | String | Optional comment.
+
+
+
+### Errors
+
+ Id  | Description
+---- | -----------
+timeOffPolicy.policyTypeNotFound | Throws if there was attempt to request with not existing policy type.
