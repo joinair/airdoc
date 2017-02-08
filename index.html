@@ -1185,6 +1185,98 @@ off will start accuring.</p>
 
 <hr>
 
+<h2 id="unassign-employees-from-policy">Unassign employees from policy</h2>
+
+<blockquote>
+<p>Returns nothing:</p>
+</blockquote>
+
+<p>Remove employees assigns from specified policy. Only admin method.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">DELETE /apps/timeoff/policies/:p_id:/eligibility</code></p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>profileIds</td>
+<td>T</td>
+<td>[String]</td>
+<td>Sequence of employee ids to be unassigned from policy.</td>
+</tr>
+</tbody></table>
+
+<h3 id="errors">Errors</h3>
+
+<table><thead>
+<tr>
+<th>Id</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>person.unauthorizedAction</td>
+<td>Throws if request is not made by admin.</td>
+</tr>
+</tbody></table>
+
+<hr>
+
+<h2 id="assign-employees-to-policy">Assign employees to policy</h2>
+
+<blockquote>
+<p>Returns nothing:</p>
+</blockquote>
+
+<p>It links employees to specified policy. Only admin method.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">PUT /apps/timeoff/policies/:p_id:/eligibility</code></p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>profileIds</td>
+<td>T</td>
+<td>[String]</td>
+<td>Sequence of employee ids to be assigned to policy.</td>
+</tr>
+</tbody></table>
+
+<h3 id="errors">Errors</h3>
+
+<table><thead>
+<tr>
+<th>Id</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>person.unauthorizedAction</td>
+<td>Throws if request is not made by admin.</td>
+</tr>
+</tbody></table>
+
+<hr>
+
 <h2 id="get-total-allowance-and-remains">Get total allowance and remains</h2>
 
 <blockquote>
