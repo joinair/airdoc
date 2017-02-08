@@ -189,7 +189,7 @@ Returns regular holidays.
 `GET /apps/timeoff/policies/holidays`
 
 
-## Get policy holidays
+## Get policy holidays setup
 
 > Returns JSON structured like this:
 
@@ -215,6 +215,27 @@ Returns regular and custom holidays attached to policy.
 
 `GET /apps/timeoff/policies/:policy_id:/holidays`
 
+
+## Get enabled policy holidays
+
+> Returns JSON structured like this:
+
+```json
+   [{
+      "id": "uuid",
+      "name": "Day of my awesomeness",
+      "startDate": "2017-01-01",
+      "endDate": "2017-01-02",
+      "isSubstituted": true,
+      "isEnabled": true
+   }]
+```
+
+Returns enabled regular and custom holidays attached to policy.
+
+### HTTP Request
+
+`GET /apps/timeoff/policies/:policy_id:/holidays/enabled`
 
 ## Get policies summary
 
