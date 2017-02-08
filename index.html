@@ -1504,6 +1504,65 @@ off will start accuring.</p>
 </tr>
 </tbody></table>
 
+<h2 id="filter-time-offs">Filter time offs</h2>
+
+<blockquote>
+<p>Returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="w">  </span><span class="p">[{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"uuid"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"typeId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"uuid"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Active"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"startDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-01"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"endDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-01"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"moreThanDay"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"hours"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some comment"</span><span class="w">
+    </span><span class="p">}]</span><span class="w">
+</span></code></pre>
+<p>Get time offs by filter. Constraints are united with <code class="prettyprint">AND</code>.
+Admin can filter by profile ids but employee always filter only by his time offs.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET /apps/timeoff/requests</code></p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>profiles</td>
+<td>F</td>
+<td>String</td>
+<td>Filter by profiles. Filter by all team time offs if not specified.</td>
+</tr>
+<tr>
+<td>startDate</td>
+<td>F</td>
+<td>String</td>
+<td>Get all time offs after this date</td>
+</tr>
+<tr>
+<td>endDate</td>
+<td>F</td>
+<td>String</td>
+<td>Get all time offs before this date</td>
+</tr>
+<tr>
+<td>status</td>
+<td>F</td>
+<td>String</td>
+<td>Get all time offs with specified status</td>
+</tr>
+</tbody></table>
+
       </div>
       <div class="dark-box">
           <div class="lang-selector">
