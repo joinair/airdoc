@@ -680,7 +680,54 @@ profileIds | T | [String] | Sequence of employee ids assigned to policy.
  Id  | Description
 ---- | -----------
 person.unauthorizedAction | Throws if request is not made by admin.
+---
 
+
+## Unassign employees from policy
+
+> Returns nothing:
+
+Remove employees assigns from specified policy. Only admin method.
+
+### HTTP Request
+
+`DELETE /apps/timeoff/policies/:p_id:/eligibility`
+
+###  Parameters
+
+Parameter | Required|  Type  | Description
+--------- | ------- | ------ | -----------
+profileIds | T | [String] | Sequence of employee ids to be unassigned from policy.
+
+### Errors
+
+ Id  | Description
+---- | -----------
+person.unauthorizedAction | Throws if request is not made by admin.
+---
+
+
+## Assign employees to policy
+
+> Returns nothing:
+
+It links employees to specified policy. Only admin method.
+
+### HTTP Request
+
+`PUT /apps/timeoff/policies/:p_id:/eligibility`
+
+###  Parameters
+
+Parameter | Required|  Type  | Description
+--------- | ------- | ------ | -----------
+profileIds | T | [String] | Sequence of employee ids to be assigned to policy.
+
+### Errors
+
+ Id  | Description
+---- | -----------
+person.unauthorizedAction | Throws if request is not made by admin.
 ---
 
 
