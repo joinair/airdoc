@@ -850,3 +850,40 @@ timeOffPolicy.policyTypeNotFound | Throws if there was attempt to request with n
 timeOffPolicy.notFullyConfigured | Throws if was attempt to book time off in not fully configured policy.
 timeOff.notAvailableYet | Throws if was attempt to book time before allowed period (before effectiveAsOf or before end of waitingPeriod).
 timeOffPolicy.invalidTimeOff | Throws if time off request parameters are not valid.
+
+
+
+## Filter time offs
+
+> Returns JSON structured like this:
+
+```json
+  [{
+        "id": "uuid",
+        "typeId": "uuid",
+        "status": "Active",
+        "startDate": "2017-02-01",
+        "endDate": "2017-02-01",
+        "moreThanDay": "true",
+        "hours": 1,
+        "comment": "some comment"
+    }]
+```
+
+
+Get time offs by filter. Constraints are united with `AND`.
+Admin can filter by profile ids but employee always filter only by his time offs.
+
+### HTTP Request
+
+`GET /apps/timeoff/requests`
+
+###  Query Parameters
+
+Parameter | Required|  Type  | Description
+--------- | ------- | ------ | -----------
+profiles  | F       | String | Filter by profiles. Filter by all team time offs if not specified.
+startDate | F       | String | Get all time offs after this date
+endDate   | F       | String | Get all time offs before this date
+status    | F       | String | Get all time offs with specified status
+
