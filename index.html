@@ -396,11 +396,30 @@
       </span><span class="nt">"isEnabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
    </span><span class="p">}]</span><span class="w">
 </span></code></pre>
-<p>Returns enabled regular and custom holidays attached to policy.</p>
+<p>Returns enabled regular and custom holidays attached to policy.
+Filtered by year.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
 <p><code class="prettyprint">GET /apps/timeoff/policies/:policy_id:/holidays/enabled</code></p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>year</td>
+<td>T</td>
+<td>Int</td>
+<td>Filter by year.</td>
+</tr>
+</tbody></table>
 
 <h2 id="get-policies-summary">Get policies summary</h2>
 
@@ -1185,59 +1204,13 @@ off will start accuring.</p>
 
 <hr>
 
-<h2 id="unassign-employees-from-policy">Unassign employees from policy</h2>
-
-<blockquote>
-<p>Returns nothing:</p>
-</blockquote>
-
-<p>Remove employees assigns from specified policy. Only admin method.</p>
-
-<h3 id="http-request">HTTP Request</h3>
-
-<p><code class="prettyprint">DELETE /apps/timeoff/policies/:p_id:/eligibility</code></p>
-
-<h3 id="parameters">Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Required</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>profileIds</td>
-<td>T</td>
-<td>[String]</td>
-<td>Sequence of employee ids to be unassigned from policy.</td>
-</tr>
-</tbody></table>
-
-<h3 id="errors">Errors</h3>
-
-<table><thead>
-<tr>
-<th>Id</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>person.unauthorizedAction</td>
-<td>Throws if request is not made by admin.</td>
-</tr>
-</tbody></table>
-
-<hr>
-
 <h2 id="assign-employees-to-policy">Assign employees to policy</h2>
 
 <blockquote>
 <p>Returns nothing:</p>
 </blockquote>
 
-<p>It links employees to specified policy. Only admin method.</p>
+<p>It links employees to specified policy. Only admin endpoint.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -1416,7 +1389,10 @@ off will start accuring.</p>
       </span><span class="nt">"startDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-01"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"endDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-01"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"moreThanDay"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"hours"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"duration"</span><span class="p">:{</span><span class="w">
+        </span><span class="nt">"hours"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"days"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+       </span><span class="p">},</span><span class="w">
       </span><span class="nt">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some comment"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -1608,7 +1584,10 @@ off will start accuring.</p>
         </span><span class="nt">"startDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-01"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"endDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-01"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"moreThanDay"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"hours"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"duration"</span><span class="p">:{</span><span class="w">
+          </span><span class="nt">"hours"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"days"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+        </span><span class="p">},</span><span class="w">
         </span><span class="nt">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some comment"</span><span class="w">
     </span><span class="p">}]</span><span class="w">
 </span></code></pre>
@@ -1654,6 +1633,167 @@ Admin can filter by profile ids but employee always filter only by his time offs
 <td>Get all time offs with specified status</td>
 </tr>
 </tbody></table>
+
+<h2 id="unassign-employee-from-policy">Unassign employee from policy</h2>
+
+<blockquote>
+<p>Returns nothing:</p>
+</blockquote>
+
+<p>Remove policy - employee link. Only admin endpoint.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">DELETE /apps/timeoff/profile/:profile_id:/policy</code></p>
+
+<h3 id="errors">Errors</h3>
+
+<table><thead>
+<tr>
+<th>Id</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>person.unauthorizedAction</td>
+<td>Throws if request is not made by admin.</td>
+</tr>
+</tbody></table>
+
+<hr>
+
+<h2 id="assign-employee-to-policy">Assign employee to policy</h2>
+
+<blockquote>
+<p>Returns nothing:</p>
+</blockquote>
+
+<p>Assign employee to specified policy. Only admin endpoint.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">PUT /apps/timeoff/profile/:profile_id:/policy</code></p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>policyId</td>
+<td>T</td>
+<td>String</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h3 id="errors">Errors</h3>
+
+<table><thead>
+<tr>
+<th>Id</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>person.unauthorizedAction</td>
+<td>Throws if request is not made by admin.</td>
+</tr>
+</tbody></table>
+
+<hr>
+
+<h2 id="get-policy-by-profile">Get policy by profile</h2>
+
+<blockquote>
+<p>Returns JSON:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some_uuid"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Default"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"workDays"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">],</span><span class="w">
+    </span><span class="nt">"workDayHours"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"effectiveAsOf"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-01"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"isConfigured"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>It returns policy for specified profile. Only admin endpoint.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET /apps/timeoff/profile/:profile_id:/policy</code></p>
+
+<h3 id="errors">Errors</h3>
+
+<table><thead>
+<tr>
+<th>Id</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>person.unauthorizedAction</td>
+<td>Throws if request is not made by admin.</td>
+</tr>
+</tbody></table>
+
+<hr>
+
+<h2 id="get-total-allowance-by-profile">Get total allowance by profile</h2>
+
+<blockquote>
+<p>Returns JSON:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"profileId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"uuid"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"totalAllowance"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"remain"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>It returns total allowance for specified profile. Only admin endpoint.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET /apps/timeoff/profile/:profile_id:/allowance</code></p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>typeId</td>
+<td>T</td>
+<td>String</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h3 id="errors">Errors</h3>
+
+<table><thead>
+<tr>
+<th>Id</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>person.unauthorizedAction</td>
+<td>Throws if request is not made by admin.</td>
+</tr>
+</tbody></table>
+
+<hr>
 
       </div>
       <div class="dark-box">
