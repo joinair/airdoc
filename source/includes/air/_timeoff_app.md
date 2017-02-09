@@ -232,10 +232,17 @@ Returns regular and custom holidays attached to policy.
 ```
 
 Returns enabled regular and custom holidays attached to policy.
+Filtered by year.
 
 ### HTTP Request
 
 `GET /apps/timeoff/policies/:policy_id:/holidays/enabled`
+
+###  Parameters
+
+Parameter | Required|  Type  | Description
+--------- | ------- | ------ | -----------
+year | T | Int | Filter by year.
 
 ## Get policies summary
 
@@ -683,35 +690,12 @@ person.unauthorizedAction | Throws if request is not made by admin.
 ---
 
 
-## Unassign employees from policy
-
-> Returns nothing:
-
-Remove employees assigns from specified policy. Only admin method.
-
-### HTTP Request
-
-`DELETE /apps/timeoff/policies/:p_id:/eligibility`
-
-###  Parameters
-
-Parameter | Required|  Type  | Description
---------- | ------- | ------ | -----------
-profileIds | T | [String] | Sequence of employee ids to be unassigned from policy.
-
-### Errors
-
- Id  | Description
----- | -----------
-person.unauthorizedAction | Throws if request is not made by admin.
----
-
 
 ## Assign employees to policy
 
 > Returns nothing:
 
-It links employees to specified policy. Only admin method.
+It links employees to specified policy. Only admin endpoint.
 
 ### HTTP Request
 
@@ -822,7 +806,10 @@ person.unauthorizedAction | Throws if request is not made by admin.
       "startDate": "2017-02-01",
       "endDate": "2017-02-01",
       "moreThanDay": "true",
-      "hours": 1,
+      "duration":{
+        "hours": 1,
+        "days": 1
+       },
       "comment": "some comment"
   }
 ```
@@ -912,7 +899,10 @@ timeOffPolicy.invalidTimeOff | Throws if time off request parameters are not val
         "startDate": "2017-02-01",
         "endDate": "2017-02-01",
         "moreThanDay": "true",
-        "hours": 1,
+        "duration":{
+          "hours": 1,
+          "days": 1
+        },
         "comment": "some comment"
     }]
 ```
@@ -933,4 +923,109 @@ profiles  | F       | String | Filter by profiles. Filter by all team time offs 
 startDate | F       | String | Get all time offs after this date
 endDate   | F       | String | Get all time offs before this date
 status    | F       | String | Get all time offs with specified status
+
+
+## Unassign employee from policy
+
+> Returns nothing:
+
+Remove policy - employee link. Only admin endpoint.
+
+### HTTP Request
+
+`DELETE /apps/timeoff/profile/:profile_id:/policy`
+
+### Errors
+
+ Id  | Description
+---- | -----------
+person.unauthorizedAction | Throws if request is not made by admin.
+---
+
+
+
+## Assign employee to policy
+
+> Returns nothing:
+
+Assign employee to specified policy. Only admin endpoint.
+
+### HTTP Request
+
+`PUT /apps/timeoff/profile/:profile_id:/policy`
+
+###  Parameters
+
+Parameter | Required|  Type  | Description
+--------- | ------- | ------ | -----------
+policyId | T | String |
+
+### Errors
+
+ Id  | Description
+---- | -----------
+person.unauthorizedAction | Throws if request is not made by admin.
+---
+
+
+
+## Get policy by profile
+
+> Returns JSON:
+
+```json
+  {
+    "id": "some_uuid",
+    "name": "Default",
+    "workDays": [1, 2, 3, 4, 5],
+    "workDayHours": 8,
+    "effectiveAsOf": "2017-01-01",
+    "isConfigured": false
+  }
+```
+
+It returns policy for specified profile. Only admin endpoint.
+
+### HTTP Request
+
+`GET /apps/timeoff/profile/:profile_id:/policy`
+
+### Errors
+
+ Id  | Description
+---- | -----------
+person.unauthorizedAction | Throws if request is not made by admin.
+---
+
+
+
+## Get total allowance by profile
+
+> Returns JSON:
+
+```json
+  {
+    "profileId": "uuid",
+    "totalAllowance": 100,
+    "remain": 100
+  }
+```
+
+It returns total allowance for specified profile. Only admin endpoint.
+
+### HTTP Request
+
+`GET /apps/timeoff/profile/:profile_id:/allowance`
+###  Parameters
+
+Parameter | Required|  Type  | Description
+--------- | ------- | ------ | -----------
+typeId    |    T    | String |
+
+### Errors
+
+ Id  | Description
+---- | -----------
+person.unauthorizedAction | Throws if request is not made by admin.
+---
 
