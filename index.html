@@ -1750,12 +1750,15 @@ Admin can filter by profile ids but employee always filter only by his time offs
 <p>Returns JSON:</p>
 </blockquote>
 <pre class="highlight json"><code><span class="w">  </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"profileId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"uuid"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"totalAllowance"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"remain"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w">
+    </span><span class="nt">"type_id"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"profileId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"uuid"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"totalAllowance"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"remain"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w">
+    </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>It returns total allowance for specified profile. Only admin endpoint.</p>
+<p>It returns total allowance for specified profile and policy
+ by policy type. Only admin endpoint.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -1772,7 +1775,7 @@ Admin can filter by profile ids but employee always filter only by his time offs
 </tr>
 </thead><tbody>
 <tr>
-<td>typeId</td>
+<td>policyId</td>
 <td>T</td>
 <td>String</td>
 <td></td>
