@@ -933,7 +933,7 @@ Remove policy - employee link. Only admin endpoint.
 
 ### HTTP Request
 
-`DELETE /apps/timeoff/profile/:profile_id:/policy`
+`DELETE /apps/timeoff/profiles/:profile_id:/policy`
 
 ### Errors
 
@@ -952,7 +952,7 @@ Assign employee to specified policy. Only admin endpoint.
 
 ### HTTP Request
 
-`PUT /apps/timeoff/profile/:profile_id:/policy`
+`PUT /apps/timeoff/profiles/:profile_id:/policy`
 
 ###  Parameters
 
@@ -988,7 +988,7 @@ It returns policy for specified profile. Only admin endpoint.
 
 ### HTTP Request
 
-`GET /apps/timeoff/profile/:profile_id:/policy`
+`GET /apps/timeoff/profiles/:profile_id:/policy`
 
 ### Errors
 
@@ -1015,7 +1015,7 @@ It returns total allowance for specified profile. Only admin endpoint.
 
 ### HTTP Request
 
-`GET /apps/timeoff/profile/:profile_id:/allowance`
+`GET /apps/timeoff/profiles/:profile_id:/allowance`
 ###  Parameters
 
 Parameter | Required|  Type  | Description
