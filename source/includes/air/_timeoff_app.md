@@ -1144,7 +1144,7 @@ person.unauthorizedAction | Throws if not admin or manager tries to get access t
   {
       "type_id": {
           "name": "Holidays",
-          "policyTypeName": "Holidays"
+          "policyTypeName": "Holidays",
           "remain": {
               "days": 10,
               "hours": 80
@@ -1197,7 +1197,7 @@ person.unauthorizedAction | Throws if not admin or manager tries to get access t
 ```json
   {
       "name": "Holidays",
-      "policyTypeName": "Holidays"
+      "policyTypeName": "Holidays",
       "remain": {
           "days": 10,
           "hours": 80
