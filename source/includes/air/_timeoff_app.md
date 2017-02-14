@@ -762,7 +762,7 @@ balances | T | [Balance] | Balance config for each employee.
 Field | Required|  Type  | Description
 ----- | ------- | ------ | -----------
 profileId | T | String | UUID
-remaining | T |  Int   | Balance remaining on first day.
+remain | T |  Int   | Balance remaining on first day.
 
 ### Errors
 
@@ -1005,13 +1005,16 @@ person.unauthorizedAction | Throws if request is not made by admin.
 
 ```json
   {
-    "profileId": "uuid",
-    "totalAllowance": 100,
-    "remain": 100
+    "type_id": {
+        "profileId": "uuid",
+        "totalAllowance": 100,
+        "remain": 100
+    }
   }
 ```
 
-It returns total allowance for specified profile. Only admin endpoint.
+It returns total allowance for specified profile and policy
+ by policy type. Only admin endpoint.
 
 ### HTTP Request
 
@@ -1020,7 +1023,7 @@ It returns total allowance for specified profile. Only admin endpoint.
 
 Parameter | Required|  Type  | Description
 --------- | ------- | ------ | -----------
-typeId    |    T    | String |
+policyId  |    T    | String |
 
 ### Errors
 
@@ -1028,4 +1031,204 @@ typeId    |    T    | String |
 ---- | -----------
 person.unauthorizedAction | Throws if request is not made by admin.
 ---
+
+
+## Get types for specified profile
+
+> Returns JSON structured like this:
+
+```json
+  [{
+      "id": "uuid",
+      "name": "My awesome type",
+      "policyTypeName": "Custom",
+      "allowance": 20,
+      "accrualFrequency": "Yearly",
+      "accrualStartDate": "2017-02-01",
+      "isNeedToRenew": "true",
+      "renewDateMonth": "12",
+      "renewDateDay": "31",
+      "isCarriedOver": "true",
+      "carryOverLimitDays": "10",
+      "isWaitingPeriodEnabled": "true",
+      "waitingPeriod": "90",
+      "isAccruedOnWait": "false",
+      "isUnlimited": "false",
+      "isEnabled": "true",
+      "availableFrom": "2017-02-01"
+  }]
+
+```
+
+Get policy type for profile.
+
+### HTTP Request
+
+`GET: /apps/timeoff/profiles/:profile_id:/policy/types`
+
+### Errors
+
+ Id  | Description
+---- | -----------
+person.unauthorizedAction | Throws if not admin or manager tries to get other types settings.
+
+
+
+## Get timeoffs overview
+
+> Returns JSON structured like this:
+
+```json
+  {
+      "requests": [{
+          "id": "uuid",
+          "typeId": "uuid",
+          "status": "AwaitingApproval",
+          "startDate": "2017-02-01",
+          "endDate": "2017-02-01",
+          "moreThanDay": "true",
+          "duration": {
+              "hours": 1,
+              "days": 1
+          },
+          "comment": "some comment"
+      }],
+      "outOfOffice": [{
+          "id": "uuid",
+          "typeId": "uuid",
+          "status": "Approved",
+          "startDate": "2017-02-01",
+          "endDate": "2017-02-01",
+          "moreThanDay": "true",
+          "duration": {
+              "hours": 1,
+              "days": 1
+          },
+          "comment": "some comment"
+      }],
+      "upcoming": [{
+          "id": "uuid",
+          "typeId": "uuid",
+          "status": "Approved",
+          "startDate": "2017-02-01",
+          "endDate": "2017-02-01",
+          "moreThanDay": "true",
+          "duration": {
+              "hours": 1,
+              "days": 1
+          },
+          "comment": "some comment"
+      }]
+  }
+```
+
+Get policy type for profile.
+
+### HTTP Request
+
+`GET: /apps/timeoff/profiles/:profile_id:/timeoffs`
+
+### Errors
+
+ Id  | Description
+---- | -----------
+person.unauthorizedAction | Throws if not admin or manager tries to get access to other profile data.
+
+
+## Get balance summary
+
+> Returns JSON structured like this:
+> 'remain' is absent for future accrual periods.
+
+```json
+  {
+      "type_id": {
+          "name": "Holidays",
+          "policyTypeName": "Holidays"
+          "remain": {
+              "days": 10,
+              "hours": 80
+          },
+          "otApproved": [{
+              "id": "uuid",
+              "typeId": "uuid",
+              "status": "AwaitingApproval",
+              "startDate": "2017-02-01",
+              "endDate": "2017-02-01",
+              "moreThanDay": "true",
+              "duration": {
+                  "hours": 1,
+                  "days": 1
+              },
+              "comment": "some comment"
+          }],
+          "taken": [],
+          "upcoming": []
+      }
+  }
+```
+
+Get balance for all policy types in current accrual year.
+
+### HTTP Request
+
+`GET: /apps/timeoff/profiles/:profile_id:/balances`
+
+###  Query Parameters
+
+Parameter | Required|  Type  | Description
+--------- | ------- | ------ | -----------
+startDate | T       | String |
+endDate   | T       | String |
+
+### Errors
+
+ Id  | Description
+---- | -----------
+person.unauthorizedAction | Throws if not admin or manager tries to get access to other profile data.
+
+
+
+## Get balance summary for type
+
+> Returns JSON structured like this:
+> 'remain' is absent for future accrual periods.
+
+```json
+  {
+      "name": "Holidays",
+      "policyTypeName": "Holidays"
+      "remain": {
+          "days": 10,
+          "hours": 80
+      },
+      "otApproved": [{
+          "id": "uuid",
+          "typeId": "uuid",
+          "status": "AwaitingApproval",
+          "startDate": "2017-02-01",
+          "endDate": "2017-02-01",
+          "moreThanDay": "true",
+          "duration": {
+              "hours": 1,
+              "days": 1
+          },
+          "comment": "some comment"
+      }],
+      "taken": [],
+      "upcoming": []
+  }
+```
+
+Get balance for specified type and time range.
+
+### HTTP Request
+
+`GET: /apps/timeoff/profiles/:profile_id:/balances/:type_id:`
+
+### Errors
+
+ Id  | Description
+---- | -----------
+person.unauthorizedAction | Throws if not admin or manager tries to get access to other profile data.
 
