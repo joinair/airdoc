@@ -1328,7 +1328,7 @@ off will start accuring.</p>
 <td>UUID</td>
 </tr>
 <tr>
-<td>remaining</td>
+<td>remain</td>
 <td>T</td>
 <td>Int</td>
 <td>Balance remaining on first day.</td>
@@ -1896,6 +1896,132 @@ Admin can filter by profile ids but employee always filter only by his time offs
 <h3 id="http-request">HTTP Request</h3>
 
 <p><code class="prettyprint">GET: /apps/timeoff/profiles/:profile_id:/timeoffs</code></p>
+
+<h3 id="errors">Errors</h3>
+
+<table><thead>
+<tr>
+<th>Id</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>person.unauthorizedAction</td>
+<td>Throws if not admin or manager tries to get access to other profile data.</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-balance-summary">Get balance summary</h2>
+
+<blockquote>
+<p>Returns JSON structured like this:
+&lsquo;remain&rsquo; is absent for future accrual periods.</p>
+</blockquote>
+<pre class="highlight json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"type_id"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Holidays"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"policyTypeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Holidays"</span><span class="w">
+          </span><span class="s2">"remain"</span><span class="err">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="nt">"days"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"hours"</span><span class="p">:</span><span class="w"> </span><span class="mi">80</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="nt">"otApproved"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+              </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"uuid"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"typeId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"uuid"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AwaitingApproval"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"startDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-01"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"endDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-01"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"moreThanDay"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"duration"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                  </span><span class="nt">"hours"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"days"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+              </span><span class="p">},</span><span class="w">
+              </span><span class="nt">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some comment"</span><span class="w">
+          </span><span class="p">}],</span><span class="w">
+          </span><span class="nt">"taken"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+          </span><span class="nt">"upcoming"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Get balance for all policy types in current accrual year.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET: /apps/timeoff/profiles/:profile_id:/balances</code></p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>startDate</td>
+<td>T</td>
+<td>String</td>
+<td></td>
+</tr>
+<tr>
+<td>endDate</td>
+<td>T</td>
+<td>String</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h3 id="errors">Errors</h3>
+
+<table><thead>
+<tr>
+<th>Id</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>person.unauthorizedAction</td>
+<td>Throws if not admin or manager tries to get access to other profile data.</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-balance-summary-for-type">Get balance summary for type</h2>
+
+<blockquote>
+<p>Returns JSON structured like this:
+&#39;remain&rsquo; is absent for future accrual periods.</p>
+</blockquote>
+<pre class="highlight json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Holidays"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"policyTypeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Holidays"</span><span class="w">
+      </span><span class="s2">"remain"</span><span class="err">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"days"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"hours"</span><span class="p">:</span><span class="w"> </span><span class="mi">80</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"otApproved"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"uuid"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"typeId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"uuid"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AwaitingApproval"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"startDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-01"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"endDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-01"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"moreThanDay"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"duration"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="nt">"hours"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"days"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="nt">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some comment"</span><span class="w">
+      </span><span class="p">}],</span><span class="w">
+      </span><span class="nt">"taken"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+      </span><span class="nt">"upcoming"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Get balance for specified type and time range.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET: /apps/timeoff/profiles/:profile_id:/balances/:type_id:</code></p>
 
 <h3 id="errors">Errors</h3>
 
