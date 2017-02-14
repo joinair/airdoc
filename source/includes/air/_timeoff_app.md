@@ -1149,7 +1149,7 @@ person.unauthorizedAction | Throws if not admin or manager tries to get access t
               "days": 10,
               "hours": 80
           },
-          "otApproved": [{
+          "notApproved": [{
               "id": "uuid",
               "typeId": "uuid",
               "status": "AwaitingApproval",
@@ -1202,7 +1202,7 @@ person.unauthorizedAction | Throws if not admin or manager tries to get access t
           "days": 10,
           "hours": 80
       },
-      "otApproved": [{
+      "notApproved": [{
           "id": "uuid",
           "typeId": "uuid",
           "status": "AwaitingApproval",
