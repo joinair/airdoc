@@ -1124,7 +1124,7 @@ Get policy type for profile.
 
 ### HTTP Request
 
-`GET: /apps/timeoff/overview`
+`GET: /apps/timeoff/requests/overview`
 
 ### Errors
 
