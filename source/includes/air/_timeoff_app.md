@@ -1072,6 +1072,67 @@ Get balance and time off overlaps.
 person.unauthorizedAction | Throws if not admin or manager tries to get access to other profile data.
 
 
+## Get timeoffs overview
+
+> Returns JSON structured like this:
+
+```json
+  {
+      "requests": [{
+          "id": "uuid",
+          "typeId": "uuid",
+          "status": "AwaitingApproval",
+          "startDate": "2017-02-01",
+          "endDate": "2017-02-01",
+          "moreThanDay": "true",
+          "duration": {
+              "hours": 1,
+              "days": 1
+          },
+          "comment": "some comment"
+      }],
+      "outOfOffice": [{
+          "id": "uuid",
+          "typeId": "uuid",
+          "status": "Approved",
+          "startDate": "2017-02-01",
+          "endDate": "2017-02-01",
+          "moreThanDay": "true",
+          "duration": {
+              "hours": 1,
+              "days": 1
+          },
+          "comment": "some comment"
+      }],
+      "upcoming": [{
+          "id": "uuid",
+          "typeId": "uuid",
+          "status": "Approved",
+          "startDate": "2017-02-01",
+          "endDate": "2017-02-01",
+          "moreThanDay": "true",
+          "duration": {
+              "hours": 1,
+              "days": 1
+          },
+          "comment": "some comment"
+      }]
+  }
+```
+
+Get policy type for profile.
+
+### HTTP Request
+
+`GET: /apps/timeoff/overview`
+
+### Errors
+
+ Id  | Description
+---- | -----------
+person.unauthorizedAction | Throws if not admin or manager tries to get access to other profile data.
+
+
 
 ## Unassign employee from policy
 
@@ -1221,7 +1282,7 @@ Get policy type for profile.
 person.unauthorizedAction | Throws if not admin or manager tries to get other types settings.
 
 
-в
+
 ## Get balance summary
 
 > Returns JSON structured like this:
