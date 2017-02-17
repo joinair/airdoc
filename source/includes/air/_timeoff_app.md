@@ -925,6 +925,154 @@ endDate   | F       | String | Get all time offs before this date
 status    | F       | String | Get all time offs with specified status
 
 
+
+## Update timeoff
+
+> Returns JSON structured like this:
+
+```json
+  {
+      "id": "uuid",
+      "typeId": "uuid",
+      "status": "AwaitingApproval",
+      "startDate": "2017-02-01",
+      "endDate": "2017-02-01",
+      "moreThanDay": "true",
+      "duration": {
+          "hours": 1,
+          "days": 1
+      },
+      "comment": "some comment"
+  }
+```
+
+Update time off for person.
+
+### HTTP Request
+
+`POST: /apps/timeoff/requests/:time_off_id:`
+
+
+### Parameters
+
+Parameter | Required|  Type  | Description
+--------- | ------- | ------ | -----------
+typeId    | T       | String | Id of time off type.
+startDate | T       | String | When time off starts.
+endDate   | T       | String | When time off ends.
+moreThanDay| T       | String | If time off more than day.
+hours     | F       | String | Amount of hours if time off less than day.
+comment   | F       | String | Comment.
+
+
+### Errors
+
+ Id  | Description
+---- | -----------
+person.unauthorizedAction | Throws if not admin or manager tries to get access to other profile data.
+
+
+
+## Delete timeoff
+> Returns nothing:
+
+Delete time off for person.
+
+### HTTP Request
+
+`DELETE: /apps/timeoff/requests/:time_off_id:`
+
+### Errors
+
+ Id  | Description
+---- | -----------
+person.unauthorizedAction | Throws if not admin or manager tries to get access to other profile data.
+
+
+
+## Change timeoff status
+
+> Returns JSON structured like this:
+
+```json
+  {
+      "id": "uuid",
+      "typeId": "uuid",
+      "status": "Approved",
+      "startDate": "2017-02-01",
+      "endDate": "2017-02-01",
+      "moreThanDay": "true",
+      "duration": {
+          "hours": 1,
+          "days": 1
+      },
+      "comment": "some comment"
+  }
+```
+
+Update time off status.
+
+### HTTP Request
+
+`POST: /apps/timeoff/requests/:time_off_id:/status`
+
+### Parameters
+
+Parameter | Required|  Type  | Description
+--------- | ------- | ------ | -----------
+status    | T       | String | Approved, Declined.
+
+### Errors
+
+ Id  | Description
+---- | -----------
+person.unauthorizedAction | Throws if not admin or manager tries to get access to other profile data.
+
+
+
+## Get timeoff overlaps
+
+> Returns JSON structured like this:
+> For unlimited types balance will be empty.
+> balance - current balance of time off owner.
+
+```json
+  {
+      "balance": {
+         "hours": 1,
+         "days": 1
+      },
+      "overlaps": [{
+          "id": "uuid",
+          "typeId": "uuid",
+          "status": "AwaitingApproval",
+          "startDate": "2017-02-01",
+          "endDate": "2017-02-01",
+          "moreThanDay": "true",
+          "duration": {
+              "hours": 1,
+              "days": 1
+          },
+          "comment": "some comment"
+      }]
+  }
+```
+
+Get balance and time off overlaps.
+
+### HTTP Request
+
+`GET: /apps/timeoff/requests/:time_off_id:/overlaps`
+
+
+### Errors
+
+ Id  | Description
+---- | -----------
+person.unauthorizedAction | Throws if not admin or manager tries to get access to other profile data.
+
+
+
 ## Unassign employee from policy
 
 > Returns nothing:
@@ -1073,68 +1221,7 @@ Get policy type for profile.
 person.unauthorizedAction | Throws if not admin or manager tries to get other types settings.
 
 
-
-## Get timeoffs overview
-
-> Returns JSON structured like this:
-
-```json
-  {
-      "requests": [{
-          "id": "uuid",
-          "typeId": "uuid",
-          "status": "AwaitingApproval",
-          "startDate": "2017-02-01",
-          "endDate": "2017-02-01",
-          "moreThanDay": "true",
-          "duration": {
-              "hours": 1,
-              "days": 1
-          },
-          "comment": "some comment"
-      }],
-      "outOfOffice": [{
-          "id": "uuid",
-          "typeId": "uuid",
-          "status": "Approved",
-          "startDate": "2017-02-01",
-          "endDate": "2017-02-01",
-          "moreThanDay": "true",
-          "duration": {
-              "hours": 1,
-              "days": 1
-          },
-          "comment": "some comment"
-      }],
-      "upcoming": [{
-          "id": "uuid",
-          "typeId": "uuid",
-          "status": "Approved",
-          "startDate": "2017-02-01",
-          "endDate": "2017-02-01",
-          "moreThanDay": "true",
-          "duration": {
-              "hours": 1,
-              "days": 1
-          },
-          "comment": "some comment"
-      }]
-  }
-```
-
-Get policy type for profile.
-
-### HTTP Request
-
-`GET: /apps/timeoff/profiles/:profile_id:/timeoffs`
-
-### Errors
-
- Id  | Description
----- | -----------
-person.unauthorizedAction | Throws if not admin or manager tries to get access to other profile data.
-
-
+в
 ## Get balance summary
 
 > Returns JSON structured like this:
@@ -1173,13 +1260,6 @@ Get balance for all policy types in current accrual year.
 ### HTTP Request
 
 `GET: /apps/timeoff/profiles/:profile_id:/balances`
-
-###  Query Parameters
-
-Parameter | Required|  Type  | Description
---------- | ------- | ------ | -----------
-startDate | T       | String |
-endDate   | T       | String |
 
 ### Errors
 
@@ -1225,6 +1305,13 @@ Get balance for specified type and time range.
 ### HTTP Request
 
 `GET: /apps/timeoff/profiles/:profile_id:/balances/:type_id:`
+
+###  Query Parameters
+
+Parameter | Required|  Type  | Description
+--------- | ------- | ------ | -----------
+startDate | T       | String |
+endDate   | T       | String |
 
 ### Errors
 
