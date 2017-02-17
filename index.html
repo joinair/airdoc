@@ -2085,7 +2085,7 @@ Admin can filter by profile ids but employee always filter only by his time offs
 </tr>
 </tbody></table>
 
-<h2 id="approve-timeoff">Approve timeoff</h2>
+<h2 id="change-timeoff-status">Change timeoff status</h2>
 
 <blockquote>
 <p>Returns JSON structured like this:</p>
@@ -2104,11 +2104,29 @@ Admin can filter by profile ids but employee always filter only by his time offs
       </span><span class="nt">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some comment"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Update time off for person.</p>
+<p>Update time off status.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">POST: /apps/timeoff/profiles/:profile_id:/timeoffs/:time_off_id:/approve</code></p>
+<p><code class="prettyprint">POST: /apps/timeoff/profiles/:profile_id:/timeoffs/:time_off_id:/status</code></p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>status</td>
+<td>T</td>
+<td>String</td>
+<td>Approved, Declined.</td>
+</tr>
+</tbody></table>
 
 <h3 id="errors">Errors</h3>
 
