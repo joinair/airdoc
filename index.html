@@ -2136,8 +2136,24 @@ balance - current balance of time off owner.</p>
 </blockquote>
 <pre class="highlight json"><code><span class="w">  </span><span class="p">{</span><span class="w">
       </span><span class="nt">"type_id"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Holidays"</span><span class="p">,</span><span class="w">
-          </span><span class="nt">"policyTypeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Holidays"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"policyType"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"uuid"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My awesome type"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"policyTypeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Custom"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"allowance"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"accrualFrequency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Yearly"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"accrualStartDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-01"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"isNeedToRenew"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"renewDateMonth"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"renewDateDay"</span><span class="p">:</span><span class="w"> </span><span class="s2">"31"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"isCarriedOver"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"carryOverLimitDays"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"isWaitingPeriodEnabled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"waitingPeriod"</span><span class="p">:</span><span class="w"> </span><span class="s2">"90"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"isAccruedOnWait"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"isUnlimited"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"isEnabled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
           </span><span class="nt">"remain"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
               </span><span class="nt">"days"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
               </span><span class="nt">"hours"</span><span class="p">:</span><span class="w"> </span><span class="mi">80</span><span class="w">
@@ -2187,8 +2203,24 @@ balance - current balance of time off owner.</p>
 &#39;remain&rsquo; is absent for future accrual periods.</p>
 </blockquote>
 <pre class="highlight json"><code><span class="w">  </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Holidays"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"policyTypeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Holidays"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"policyType"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"uuid"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My awesome type"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"policyTypeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Custom"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"allowance"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"accrualFrequency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Yearly"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"accrualStartDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-01"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"isNeedToRenew"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"renewDateMonth"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"renewDateDay"</span><span class="p">:</span><span class="w"> </span><span class="s2">"31"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"isCarriedOver"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"carryOverLimitDays"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"isWaitingPeriodEnabled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"waitingPeriod"</span><span class="p">:</span><span class="w"> </span><span class="s2">"90"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"isAccruedOnWait"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"isUnlimited"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"isEnabled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
       </span><span class="nt">"remain"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="nt">"days"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
           </span><span class="nt">"hours"</span><span class="p">:</span><span class="w"> </span><span class="mi">80</span><span class="w">
