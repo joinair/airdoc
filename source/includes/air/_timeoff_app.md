@@ -8,7 +8,7 @@ Set onboarding for current profile as completed.
 
 ### HTTP Request
 
-`POST /apps/timeoff/completeOnboarding`
+`POST /apps/timeoff/onboarding/complete`
 
 
 ## Create policy
