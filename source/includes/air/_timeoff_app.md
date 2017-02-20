@@ -1,5 +1,16 @@
 # Time Off App
 
+## Complete time off profile onboarding.
+
+> Returns nothing:
+
+Set onboarding for current profile as completed.
+
+### HTTP Request
+
+`POST /apps/timeoff/completeOnboarding`
+
+
 ## Create policy
 
 > Returns JSON structured like this:
