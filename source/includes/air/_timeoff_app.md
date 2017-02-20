@@ -1291,8 +1291,24 @@ person.unauthorizedAction | Throws if not admin or manager tries to get other ty
 ```json
   {
       "type_id": {
-          "name": "Holidays",
-          "policyTypeName": "Holidays",
+          "policyType": {
+              "id": "uuid",
+              "name": "My awesome type",
+              "policyTypeName": "Custom",
+              "allowance": 20,
+              "accrualFrequency": "Yearly",
+              "accrualStartDate": "2017-02-01",
+              "isNeedToRenew": "true",
+              "renewDateMonth": "12",
+              "renewDateDay": "31",
+              "isCarriedOver": "true",
+              "carryOverLimitDays": "10",
+              "isWaitingPeriodEnabled": "true",
+              "waitingPeriod": "90",
+              "isAccruedOnWait": "false",
+              "isUnlimited": "false",
+              "isEnabled": "true"
+          },
           "remain": {
               "days": 10,
               "hours": 80
@@ -1337,8 +1353,24 @@ person.unauthorizedAction | Throws if not admin or manager tries to get access t
 
 ```json
   {
-      "name": "Holidays",
-      "policyTypeName": "Holidays",
+      "policyType": {
+            "id": "uuid",
+            "name": "My awesome type",
+            "policyTypeName": "Custom",
+            "allowance": 20,
+            "accrualFrequency": "Yearly",
+            "accrualStartDate": "2017-02-01",
+            "isNeedToRenew": "true",
+            "renewDateMonth": "12",
+            "renewDateDay": "31",
+            "isCarriedOver": "true",
+            "carryOverLimitDays": "10",
+            "isWaitingPeriodEnabled": "true",
+            "waitingPeriod": "90",
+            "isAccruedOnWait": "false",
+            "isUnlimited": "false",
+            "isEnabled": "true"
+      },
       "remain": {
           "days": 10,
           "hours": 80
