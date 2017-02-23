@@ -821,7 +821,8 @@ person.unauthorizedAction | Throws if request is not made by admin.
         "hours": 1,
         "days": 1
        },
-      "comment": "some comment"
+      "comment": "some comment",
+      "approverId": "uuid"
   }
 ```
 
@@ -914,7 +915,8 @@ timeOffPolicy.invalidTimeOff | Throws if time off request parameters are not val
           "hours": 1,
           "days": 1
         },
-        "comment": "some comment"
+        "comment": "some comment",
+        "approverId": "uuid"
     }]
 ```
 
@@ -953,7 +955,8 @@ status    | F       | String | Get all time offs with specified status
           "hours": 1,
           "days": 1
       },
-      "comment": "some comment"
+      "comment": "some comment",
+      "approverId": "uuid"
   }
 ```
 
@@ -1017,7 +1020,8 @@ person.unauthorizedAction | Throws if not admin or manager tries to get access t
           "hours": 1,
           "days": 1
       },
-      "comment": "some comment"
+      "comment": "some comment",
+      "approverId": "uuid"
   }
 ```
 
@@ -1032,6 +1036,7 @@ Update time off status.
 Parameter | Required|  Type  | Description
 --------- | ------- | ------ | -----------
 status    | T       | String | Approved, Declined.
+comment   | F       | String |
 
 ### Errors
 
@@ -1064,7 +1069,8 @@ person.unauthorizedAction | Throws if not admin or manager tries to get access t
               "hours": 1,
               "days": 1
           },
-          "comment": "some comment"
+          "comment": "some comment",
+          "approverId": "uuid"
       }]
   }
 ```
@@ -1113,7 +1119,8 @@ person.unauthorizedAction | Throws if not admin or manager tries to get access t
               "hours": 1,
               "days": 1
           },
-          "comment": "some comment"
+          "comment": "some comment",
+          "approverId": "uuid"
       }],
       "upcoming": [{
           "id": "uuid",
@@ -1126,7 +1133,8 @@ person.unauthorizedAction | Throws if not admin or manager tries to get access t
               "hours": 1,
               "days": 1
           },
-          "comment": "some comment"
+          "comment": "some comment",
+          "approverId": "uuid"
       }]
   }
 ```
@@ -1318,7 +1326,8 @@ person.unauthorizedAction | Throws if not admin or manager tries to get other ty
               "waitingPeriod": "90",
               "isAccruedOnWait": "false",
               "isUnlimited": "false",
-              "isEnabled": "true"
+              "isEnabled": "true",
+              "availableFrom": "2017-02-01"
           },
           "remain": {
               "days": 10,
@@ -1335,7 +1344,8 @@ person.unauthorizedAction | Throws if not admin or manager tries to get other ty
                   "hours": 1,
                   "days": 1
               },
-              "comment": "some comment"
+              "comment": "some comment",
+             "approverId": "uuid"
           }],
           "taken": [],
           "upcoming": []
@@ -1380,7 +1390,8 @@ person.unauthorizedAction | Throws if not admin or manager tries to get access t
             "waitingPeriod": "90",
             "isAccruedOnWait": "false",
             "isUnlimited": "false",
-            "isEnabled": "true"
+            "isEnabled": "true",
+            "availableFrom": "2017-02-01"
       },
       "remain": {
           "days": 10,
@@ -1397,7 +1408,8 @@ person.unauthorizedAction | Throws if not admin or manager tries to get access t
               "hours": 1,
               "days": 1
           },
-          "comment": "some comment"
+          "comment": "some comment",
+          "approverId": "uuid"
       }],
       "taken": [],
       "upcoming": []
@@ -1416,6 +1428,38 @@ Parameter | Required|  Type  | Description
 --------- | ------- | ------ | -----------
 startDate | T       | String |
 endDate   | T       | String |
+
+### Errors
+
+ Id  | Description
+---- | -----------
+person.unauthorizedAction | Throws if not admin or manager tries to get access to other profile data.
+
+
+
+## Get activity
+
+> Returns JSON structured like this:
+> names: TimeOffPolicyAssigned, TimeOffPolicyUnassigned, TimeOffRequested, TimeOffApproved, TimeOffDeclined, TimeOffDeleted, TimeOffChanged
+
+```json
+  {
+      [{
+           "name": "TimeOffPolicyAssigned",
+           "actorProfileId": "e8c28c12-ab1e-437b-a6b6-70016077802e",
+           "targetProfileId": "e8c28c12-ab1e-437b-a6b6-70016077802e",
+           "policyId": "a0c6631a-31e6-43be-be3e-3fd759bae1fb",
+           "policyName": "Default",
+           "createdAt": "2017-02-23T09:01:06Z"
+      ]}
+```
+
+Get balance for specified type and time range.
+
+### HTTP Request
+
+`GET: /apps/timeoff/profiles/:profile_id:/activity`
+
 
 ### Errors
 
