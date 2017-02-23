@@ -2319,13 +2319,17 @@ balance - current balance of time off owner.</p>
 
 <blockquote>
 <p>Returns JSON structured like this:
-&#39;remain&rsquo; is absent for future accrual periods.</p>
+names: TimeOffPolicyAssigned, TimeOffPolicyUnassigned, TimeOffRequested, TimeOffApproved, TimeOffDeclined, TimeOffDeleted, TimeOffChanged</p>
 </blockquote>
 <pre class="highlight json"><code><span class="w">  </span><span class="p">{</span><span class="w">
-      </span><span class="err">[</span><span class="w"> </span><span class="err">{</span><span class="w">
-
-      </span><span class="p">}</span><span class="err">]</span><span class="w">
-  </span><span class="err">}</span><span class="w">
+      </span><span class="err">[{</span><span class="w">
+           </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TimeOffPolicyAssigned"</span><span class="p">,</span><span class="w">
+           </span><span class="nt">"actorProfileId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e8c28c12-ab1e-437b-a6b6-70016077802e"</span><span class="p">,</span><span class="w">
+           </span><span class="nt">"targetProfileId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e8c28c12-ab1e-437b-a6b6-70016077802e"</span><span class="p">,</span><span class="w">
+           </span><span class="nt">"policyId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a0c6631a-31e6-43be-be3e-3fd759bae1fb"</span><span class="p">,</span><span class="w">
+           </span><span class="nt">"policyName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Default"</span><span class="p">,</span><span class="w">
+           </span><span class="nt">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-23T09:01:06Z"</span><span class="w">
+      </span><span class="err">]</span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Get balance for specified type and time range.</p>
 
