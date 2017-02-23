@@ -1405,7 +1405,8 @@ off will start accuring.</p>
         </span><span class="nt">"hours"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
         </span><span class="nt">"days"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
        </span><span class="p">},</span><span class="w">
-      </span><span class="nt">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some comment"</span><span class="w">
+      </span><span class="nt">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some comment"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"approverId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"uuid"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>It requests time off and returns result request object.</p>
@@ -1600,7 +1601,8 @@ off will start accuring.</p>
           </span><span class="nt">"hours"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
           </span><span class="nt">"days"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
         </span><span class="p">},</span><span class="w">
-        </span><span class="nt">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some comment"</span><span class="w">
+        </span><span class="nt">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some comment"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"approverId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"uuid"</span><span class="w">
     </span><span class="p">}]</span><span class="w">
 </span></code></pre>
 <p>Get time offs by filter. Constraints are united with <code class="prettyprint">AND</code>.
@@ -1662,7 +1664,8 @@ Admin can filter by profile ids but employee always filter only by his time offs
           </span><span class="nt">"hours"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
           </span><span class="nt">"days"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
       </span><span class="p">},</span><span class="w">
-      </span><span class="nt">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some comment"</span><span class="w">
+      </span><span class="nt">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some comment"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"approverId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"uuid"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Update time off for person.</p>
@@ -1775,7 +1778,8 @@ Admin can filter by profile ids but employee always filter only by his time offs
           </span><span class="nt">"hours"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
           </span><span class="nt">"days"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
       </span><span class="p">},</span><span class="w">
-      </span><span class="nt">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some comment"</span><span class="w">
+      </span><span class="nt">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some comment"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"approverId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"uuid"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Update time off status.</p>
@@ -1845,7 +1849,8 @@ balance - current balance of time off owner.</p>
               </span><span class="nt">"hours"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
               </span><span class="nt">"days"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
           </span><span class="p">},</span><span class="w">
-          </span><span class="nt">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some comment"</span><span class="w">
+          </span><span class="nt">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some comment"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"approverId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"uuid"</span><span class="w">
       </span><span class="p">}]</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -1899,7 +1904,8 @@ balance - current balance of time off owner.</p>
               </span><span class="nt">"hours"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
               </span><span class="nt">"days"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
           </span><span class="p">},</span><span class="w">
-          </span><span class="nt">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some comment"</span><span class="w">
+          </span><span class="nt">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some comment"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"approverId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"uuid"</span><span class="w">
       </span><span class="p">}],</span><span class="w">
       </span><span class="nt">"upcoming"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
           </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"uuid"</span><span class="p">,</span><span class="w">
@@ -1912,7 +1918,8 @@ balance - current balance of time off owner.</p>
               </span><span class="nt">"hours"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
               </span><span class="nt">"days"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
           </span><span class="p">},</span><span class="w">
-          </span><span class="nt">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some comment"</span><span class="w">
+          </span><span class="nt">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some comment"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"approverId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"uuid"</span><span class="w">
       </span><span class="p">}]</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -2170,7 +2177,8 @@ balance - current balance of time off owner.</p>
               </span><span class="nt">"waitingPeriod"</span><span class="p">:</span><span class="w"> </span><span class="s2">"90"</span><span class="p">,</span><span class="w">
               </span><span class="nt">"isAccruedOnWait"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="p">,</span><span class="w">
               </span><span class="nt">"isUnlimited"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="p">,</span><span class="w">
-              </span><span class="nt">"isEnabled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="w">
+              </span><span class="nt">"isEnabled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"availableFrom"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-01"</span><span class="w">
           </span><span class="p">},</span><span class="w">
           </span><span class="nt">"remain"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
               </span><span class="nt">"days"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
@@ -2187,7 +2195,8 @@ balance - current balance of time off owner.</p>
                   </span><span class="nt">"hours"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
                   </span><span class="nt">"days"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
               </span><span class="p">},</span><span class="w">
-              </span><span class="nt">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some comment"</span><span class="w">
+              </span><span class="nt">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some comment"</span><span class="p">,</span><span class="w">
+             </span><span class="nt">"approverId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"uuid"</span><span class="w">
           </span><span class="p">}],</span><span class="w">
           </span><span class="nt">"taken"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
           </span><span class="nt">"upcoming"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
@@ -2237,7 +2246,8 @@ balance - current balance of time off owner.</p>
             </span><span class="nt">"waitingPeriod"</span><span class="p">:</span><span class="w"> </span><span class="s2">"90"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"isAccruedOnWait"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"isUnlimited"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"isEnabled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="w">
+            </span><span class="nt">"isEnabled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"availableFrom"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-01"</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="nt">"remain"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="nt">"days"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
@@ -2254,7 +2264,8 @@ balance - current balance of time off owner.</p>
               </span><span class="nt">"hours"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
               </span><span class="nt">"days"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
           </span><span class="p">},</span><span class="w">
-          </span><span class="nt">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some comment"</span><span class="w">
+          </span><span class="nt">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some comment"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"approverId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"uuid"</span><span class="w">
       </span><span class="p">}],</span><span class="w">
       </span><span class="nt">"taken"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
       </span><span class="nt">"upcoming"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
@@ -2265,6 +2276,62 @@ balance - current balance of time off owner.</p>
 <h3 id="http-request">HTTP Request</h3>
 
 <p><code class="prettyprint">GET: /apps/timeoff/profiles/:profile_id:/balances/:type_id:</code></p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>startDate</td>
+<td>T</td>
+<td>String</td>
+<td></td>
+</tr>
+<tr>
+<td>endDate</td>
+<td>T</td>
+<td>String</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h3 id="errors">Errors</h3>
+
+<table><thead>
+<tr>
+<th>Id</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>person.unauthorizedAction</td>
+<td>Throws if not admin or manager tries to get access to other profile data.</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-activity">Get activity</h2>
+
+<blockquote>
+<p>Returns JSON structured like this:
+&#39;remain&rsquo; is absent for future accrual periods.</p>
+</blockquote>
+<pre class="highlight json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+      </span><span class="err">[</span><span class="w"> </span><span class="err">{</span><span class="w">
+
+      </span><span class="p">}</span><span class="err">]</span><span class="w">
+  </span><span class="err">}</span><span class="w">
+</span></code></pre>
+<p>Get balance for specified type and time range.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET: /apps/timeoff/profiles/:profile_id:/activity</code></p>
 
 <h3 id="query-parameters">Query Parameters</h3>
 
