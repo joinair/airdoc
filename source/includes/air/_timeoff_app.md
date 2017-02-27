@@ -1434,7 +1434,7 @@ person.unauthorizedAction | Throws if not admin or manager tries to get access t
 > names: TimeOffPolicyAssigned, TimeOffPolicyUnassigned, TimeOffRequested, TimeOffApproved, TimeOffDeclined, TimeOffDeleted, TimeOffChanged
 
 ```json
-  {
+
       [{
           "name": "TimeOffApproved",
           "actorProfileId": "e8c28c12-ab1e-437b-a6b6-70016077802e",
@@ -1471,7 +1471,7 @@ person.unauthorizedAction | Throws if not admin or manager tries to get access t
           "comment": "comment for event",
           "createdAt": "2017-02-27T06:45:58Z"
       }]
-  }
+
 ```
 
 Get balance for specified type and time range.
