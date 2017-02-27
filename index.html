@@ -2286,13 +2286,42 @@ names: TimeOffPolicyAssigned, TimeOffPolicyUnassigned, TimeOffRequested, TimeOff
 </blockquote>
 <pre class="highlight json"><code><span class="w">  </span><span class="p">{</span><span class="w">
       </span><span class="err">[{</span><span class="w">
-           </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TimeOffPolicyAssigned"</span><span class="p">,</span><span class="w">
-           </span><span class="nt">"actorProfileId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e8c28c12-ab1e-437b-a6b6-70016077802e"</span><span class="p">,</span><span class="w">
-           </span><span class="nt">"targetProfileId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e8c28c12-ab1e-437b-a6b6-70016077802e"</span><span class="p">,</span><span class="w">
-           </span><span class="nt">"policyId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a0c6631a-31e6-43be-be3e-3fd759bae1fb"</span><span class="p">,</span><span class="w">
-           </span><span class="nt">"policyName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Default"</span><span class="p">,</span><span class="w">
-           </span><span class="nt">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-23T09:01:06Z"</span><span class="w">
-      </span><span class="err">]</span><span class="p">}</span><span class="w">
+          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TimeOffApproved"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"actorProfileId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e8c28c12-ab1e-437b-a6b6-70016077802e"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"targetProfileId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e8c28c12-ab1e-437b-a6b6-70016077802e"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"timeOffId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a0c6631a-31e6-43be-be3e-3fd759bae1fb"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Default"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-23T09:01:06Z"</span><span class="w">
+      </span><span class="p">}</span><span class="err">,</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TimeOffPolicyAssigned"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"actorProfileId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e8c28c12-ab1e-437b-a6b6-70016077802e"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"targetProfileId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e8c28c12-ab1e-437b-a6b6-70016077802e"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"policyId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a0c6631a-31e6-43be-be3e-3fd759bae1fb"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"policyName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Default"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-23T09:01:06Z"</span><span class="w">
+      </span><span class="p">}</span><span class="err">,</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TimeOffRequested"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"actorProfileId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e8c28c12-ab1e-437b-a6b6-70016077802e"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"targetProfileId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e8c28c12-ab1e-437b-a6b6-70016077802e"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"timeOff"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9129649b-f91d-4588-b3fb-6a383e9d536c"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"typeId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"127ffe97-3b21-4190-a57a-9fae5d14773a"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"typeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Holiday"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"profileId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e8c28c12-ab1e-437b-a6b6-70016077802e"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AwaitingApproval"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"startDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-28"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"endDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-28"</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"moreThanDay"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+              </span><span class="nt">"duration"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                  </span><span class="nt">"hours"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
+                  </span><span class="nt">"days"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+              </span><span class="p">},</span><span class="w">
+              </span><span class="nt">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"comment for time off"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="nt">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"comment for event"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-27T06:45:58Z"</span><span class="w">
+      </span><span class="p">}</span><span class="err">]</span><span class="w">
+  </span><span class="err">}</span><span class="w">
 </span></code></pre>
 <p>Get balance for specified type and time range.</p>
 
