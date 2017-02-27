@@ -2284,22 +2284,22 @@ balance - current balance of time off owner.</p>
 <p>Returns JSON structured like this:
 names: TimeOffPolicyAssigned, TimeOffPolicyUnassigned, TimeOffRequested, TimeOffApproved, TimeOffDeclined, TimeOffDeleted, TimeOffChanged</p>
 </blockquote>
-<pre class="highlight json"><code><span class="w">  </span><span class="p">{</span><span class="w">
-      </span><span class="err">[{</span><span class="w">
+<pre class="highlight json"><code><span class="w">
+      </span><span class="p">[{</span><span class="w">
           </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TimeOffApproved"</span><span class="p">,</span><span class="w">
           </span><span class="nt">"actorProfileId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e8c28c12-ab1e-437b-a6b6-70016077802e"</span><span class="p">,</span><span class="w">
           </span><span class="nt">"targetProfileId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e8c28c12-ab1e-437b-a6b6-70016077802e"</span><span class="p">,</span><span class="w">
           </span><span class="nt">"timeOffId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a0c6631a-31e6-43be-be3e-3fd759bae1fb"</span><span class="p">,</span><span class="w">
           </span><span class="nt">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Default"</span><span class="p">,</span><span class="w">
           </span><span class="nt">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-23T09:01:06Z"</span><span class="w">
-      </span><span class="p">}</span><span class="err">,</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TimeOffPolicyAssigned"</span><span class="p">,</span><span class="w">
           </span><span class="nt">"actorProfileId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e8c28c12-ab1e-437b-a6b6-70016077802e"</span><span class="p">,</span><span class="w">
           </span><span class="nt">"targetProfileId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e8c28c12-ab1e-437b-a6b6-70016077802e"</span><span class="p">,</span><span class="w">
           </span><span class="nt">"policyId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a0c6631a-31e6-43be-be3e-3fd759bae1fb"</span><span class="p">,</span><span class="w">
           </span><span class="nt">"policyName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Default"</span><span class="p">,</span><span class="w">
           </span><span class="nt">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-23T09:01:06Z"</span><span class="w">
-      </span><span class="p">}</span><span class="err">,</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TimeOffRequested"</span><span class="p">,</span><span class="w">
           </span><span class="nt">"actorProfileId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e8c28c12-ab1e-437b-a6b6-70016077802e"</span><span class="p">,</span><span class="w">
           </span><span class="nt">"targetProfileId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e8c28c12-ab1e-437b-a6b6-70016077802e"</span><span class="p">,</span><span class="w">
@@ -2320,8 +2320,8 @@ names: TimeOffPolicyAssigned, TimeOffPolicyUnassigned, TimeOffRequested, TimeOff
           </span><span class="p">},</span><span class="w">
           </span><span class="nt">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"comment for event"</span><span class="p">,</span><span class="w">
           </span><span class="nt">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-27T06:45:58Z"</span><span class="w">
-      </span><span class="p">}</span><span class="err">]</span><span class="w">
-  </span><span class="err">}</span><span class="w">
+      </span><span class="p">}]</span><span class="w">
+
 </span></code></pre>
 <p>Get balance for specified type and time range.</p>
 
