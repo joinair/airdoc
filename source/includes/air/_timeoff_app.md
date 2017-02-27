@@ -1436,13 +1436,42 @@ person.unauthorizedAction | Throws if not admin or manager tries to get access t
 ```json
   {
       [{
-           "name": "TimeOffPolicyAssigned",
-           "actorProfileId": "e8c28c12-ab1e-437b-a6b6-70016077802e",
-           "targetProfileId": "e8c28c12-ab1e-437b-a6b6-70016077802e",
-           "policyId": "a0c6631a-31e6-43be-be3e-3fd759bae1fb",
-           "policyName": "Default",
-           "createdAt": "2017-02-23T09:01:06Z"
-      ]}
+          "name": "TimeOffApproved",
+          "actorProfileId": "e8c28c12-ab1e-437b-a6b6-70016077802e",
+          "targetProfileId": "e8c28c12-ab1e-437b-a6b6-70016077802e",
+          "timeOffId": "a0c6631a-31e6-43be-be3e-3fd759bae1fb",
+          "comment": "Default",
+          "createdAt": "2017-02-23T09:01:06Z"
+      }, {
+          "name": "TimeOffPolicyAssigned",
+          "actorProfileId": "e8c28c12-ab1e-437b-a6b6-70016077802e",
+          "targetProfileId": "e8c28c12-ab1e-437b-a6b6-70016077802e",
+          "policyId": "a0c6631a-31e6-43be-be3e-3fd759bae1fb",
+          "policyName": "Default",
+          "createdAt": "2017-02-23T09:01:06Z"
+      }, {
+          "name": "TimeOffRequested",
+          "actorProfileId": "e8c28c12-ab1e-437b-a6b6-70016077802e",
+          "targetProfileId": "e8c28c12-ab1e-437b-a6b6-70016077802e",
+          "timeOff": {
+              "id": "9129649b-f91d-4588-b3fb-6a383e9d536c",
+              "typeId": "127ffe97-3b21-4190-a57a-9fae5d14773a",
+              "typeName": "Holiday",
+              "profileId": "e8c28c12-ab1e-437b-a6b6-70016077802e",
+              "status": "AwaitingApproval",
+              "startDate": "2017-02-28",
+              "endDate": "2017-02-28",
+              "moreThanDay": true,
+              "duration": {
+                  "hours": 8,
+                  "days": 1
+              },
+              "comment": "comment for time off"
+          },
+          "comment": "comment for event",
+          "createdAt": "2017-02-27T06:45:58Z"
+      }]
+  }
 ```
 
 Get balance for specified type and time range.
