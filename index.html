@@ -2329,6 +2329,45 @@ names: TimeOffPolicyAssigned, TimeOffPolicyUnassigned, TimeOffRequested, TimeOff
 
 <p><code class="prettyprint">GET: /apps/timeoff/profiles/:profile_id:/activity</code></p>
 
+<h2 id="get-balances-history">Get balances history</h2>
+
+<blockquote>
+<p>Returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="w">
+      </span><span class="p">[{</span><span class="w">
+          </span><span class="nt">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-23"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"actor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Timesheet"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"change"</span><span class="p">:</span><span class="w"> </span><span class="mf">3.1415926</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"balance"</span><span class="p">:</span><span class="w"> </span><span class="mf">23.1415926</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bonus Holiday"</span><span class="p">,</span><span class="w">
+      </span><span class="err">}</span><span class="p">]</span><span class="w">
+
+</span></code></pre>
+<p>Get balance for specified type and time range.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET: /apps/timeoff/profiles/:profile_id:/balances/history</code></p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>typeId</td>
+<td>T</td>
+<td>String</td>
+<td>Type identifier</td>
+</tr>
+</tbody></table>
+
 <h3 id="errors">Errors</h3>
 
 <table><thead>
