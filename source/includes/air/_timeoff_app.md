@@ -1481,6 +1481,35 @@ Get balance for specified type and time range.
 `GET: /apps/timeoff/profiles/:profile_id:/activity`
 
 
+
+## Get balances history
+
+> Returns JSON structured like this:
+
+```json
+
+      [{
+          "date": "2017-02-23",
+          "actor": "Timesheet",
+          "change": 3.1415926,
+          "balance": 23.1415926,
+          "description": "Bonus Holiday",
+      }]
+
+```
+
+Get balance for specified type and time range.
+
+### HTTP Request
+
+`GET: /apps/timeoff/profiles/:profile_id:/balances/history`
+
+###  Query Parameters
+
+Parameter | Required|  Type  | Description
+--------- | ------- | ------ | -----------
+typeId    | T       | String | Type identifier
+
 ### Errors
 
  Id  | Description
