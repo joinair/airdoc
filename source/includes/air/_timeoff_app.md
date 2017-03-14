@@ -1493,12 +1493,12 @@ Get balance for specified type and time range.
           "actor": "Timesheet",
           "change": 3.1415926,
           "balance": 23.1415926,
-          "description": "Bonus Holiday",
+          "description": "Bonus Holiday"
       }]
 
 ```
 
-Get balance for specified type and time range.
+Get a history of balance changes.
 
 ### HTTP Request
 
