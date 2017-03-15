@@ -1489,7 +1489,7 @@ Get balance for specified type and time range.
 ```json
 
       [{
-          "date": "2017-02-23",
+          "createdAt": 1489581786168,
           "actor": "Timesheet",
           "change": 3.1415926,
           "balance": 23.1415926,
