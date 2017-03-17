@@ -2382,6 +2382,71 @@ names: TimeOffPolicyAssigned, TimeOffPolicyUnassigned, TimeOffRequested, TimeOff
 </tr>
 </tbody></table>
 
+<h2 id="make-adjustment">Make adjustment.</h2>
+
+<blockquote>
+<p>Returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="w">
+      </span><span class="p">[{</span><span class="w">
+          </span><span class="nt">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="mi">1489581786168</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"actor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Batman"</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"change"</span><span class="p">:</span><span class="w"> </span><span class="mf">3.1415926</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"balance"</span><span class="p">:</span><span class="w"> </span><span class="mf">23.1415926</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Balance adjustment: For cool API."</span><span class="w">
+      </span><span class="p">}]</span><span class="w">
+
+</span></code></pre>
+<p>Make custom balance changes.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST: /apps/timeoff/profiles/:profile_id:/balances/adjustment</code></p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>typeId</td>
+<td>T</td>
+<td>String</td>
+<td>Type identifier</td>
+</tr>
+<tr>
+<td>value</td>
+<td>T</td>
+<td>Double</td>
+<td>Amount of adjustment with sign.</td>
+</tr>
+<tr>
+<td>comment</td>
+<td>F</td>
+<td>String</td>
+<td>Optional comment.</td>
+</tr>
+</tbody></table>
+
+<h3 id="errors">Errors</h3>
+
+<table><thead>
+<tr>
+<th>Id</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>person.unauthorizedAction</td>
+<td>Throws if not admin or manager tries to get access to other profile data.</td>
+</tr>
+</tbody></table>
+
       </div>
       <div class="dark-box">
           <div class="lang-selector">
