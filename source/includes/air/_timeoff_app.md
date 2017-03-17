@@ -1516,3 +1516,41 @@ typeId    | T       | String | Type identifier
 ---- | -----------
 person.unauthorizedAction | Throws if not admin or manager tries to get access to other profile data.
 
+
+
+## Make adjustment.
+
+> Returns JSON structured like this:
+
+```json
+
+      [{
+          "createdAt": 1489581786168,
+          "actor": "Batman",
+          "change": 3.1415926,
+          "balance": 23.1415926,
+          "description": "Balance adjustment: For cool API."
+      }]
+
+```
+
+Make custom balance changes.
+
+### HTTP Request
+
+`POST: /apps/timeoff/profiles/:profile_id:/balances/adjustment`
+
+###  Query Parameters
+
+Parameter | Required|  Type  | Description
+--------- | ------- | ------ | -----------
+typeId    | T       | String | Type identifier
+value     | T       | Double | Amount of adjustment with sign.
+comment   | F       | String | Optional comment.
+
+### Errors
+
+ Id  | Description
+---- | -----------
+person.unauthorizedAction | Throws if not admin or manager tries to get access to other profile data.
+
