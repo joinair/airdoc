@@ -1554,3 +1554,26 @@ comment   | F       | String | Optional comment.
 ---- | -----------
 person.unauthorizedAction | Throws if not admin or manager tries to get access to other profile data.
 
+
+## Change APP status.
+
+> Returns nothing.
+
+Change app status. Use only for manual app activation
+
+### HTTP Request
+
+`POST: /apps/timeoff/_changeStatus`
+
+###  Parameters
+
+Parameter | Required|  Type  | Description
+--------- | ------- | ------ | -----------
+value     | T       | String | value = "Active"
+
+### Errors
+
+ Id  | Description
+---- | -----------
+payments.higherPlanRequired | Throws if plan is not premium.
+
