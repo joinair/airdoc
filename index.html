@@ -2447,6 +2447,50 @@ names: TimeOffPolicyAssigned, TimeOffPolicyUnassigned, TimeOffRequested, TimeOff
 </tr>
 </tbody></table>
 
+<h2 id="change-app-status">Change APP status.</h2>
+
+<blockquote>
+<p>Returns nothing.</p>
+</blockquote>
+
+<p>Change app status. Use only for manual app activation</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST: /apps/timeoff/_changeStatus</code></p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>value</td>
+<td>T</td>
+<td>String</td>
+<td>value = &ldquo;Active&rdquo;</td>
+</tr>
+</tbody></table>
+
+<h3 id="errors">Errors</h3>
+
+<table><thead>
+<tr>
+<th>Id</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>payments.higherPlanRequired</td>
+<td>Throws if plan is not premium.</td>
+</tr>
+</tbody></table>
+
       </div>
       <div class="dark-box">
           <div class="lang-selector">
