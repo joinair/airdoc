@@ -1045,6 +1045,7 @@ person.unauthorizedAction | Throws if not admin or manager tries to get access t
 
 ```json
   {
+      "isUnlimited": true,
       "balance": {
          "hours": 1,
          "days": 1
