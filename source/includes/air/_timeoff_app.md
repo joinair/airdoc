@@ -752,6 +752,32 @@ person.unauthorizedAction | Throws if request is not made by admin.
 
 
 
+## Get total allowance and remains only for not initialized profiles
+
+> Returns JSON structured like this:
+
+```json
+  [{
+    "profileId": "uuid",
+    "totalAllowance": 100,
+    "remain": 100
+  }]
+```
+
+Get total allowance for employees.
+
+### HTTP Request
+
+`GET /apps/timeoff/policies/:p_id:/types/:t_id:/balances/new`
+
+### Errors
+
+ Id  | Description
+---- | -----------
+person.unauthorizedAction | Throws if request is not made by admin.
+
+
+
 ## Setup balances
 
 > Returns nothing:
