@@ -757,18 +757,26 @@ person.unauthorizedAction | Throws if request is not made by admin.
 > Returns JSON structured like this:
 
 ```json
-  [{
-    "profileId": "uuid",
-    "totalAllowance": 100,
-    "remain": 100
-  }]
+  {"typeId": [{
+      "profileId": "uuid",
+      "totalAllowance": 100,
+      "remain": 100
+    }]
+  }
 ```
 
 Get total allowance for employees.
 
 ### HTTP Request
 
-`GET /apps/timeoff/policies/:p_id:/types/:t_id:/balances/new`
+`GET /apps/timeoff/policies/:p_id:/balances/new`
+
+###  Query Parameters
+
+Parameter | Required|  Type  | Description
+--------- | ------- | ------ | -----------
+profiles  | T       |[String]| Array of profile ids.
+
 
 ### Errors
 
