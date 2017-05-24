@@ -1298,17 +1298,36 @@ off will start accuring.</p>
 <blockquote>
 <p>Returns JSON structured like this:</p>
 </blockquote>
-<pre class="highlight json"><code><span class="w">  </span><span class="p">[{</span><span class="w">
-    </span><span class="nt">"profileId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"uuid"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"totalAllowance"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"remain"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w">
-  </span><span class="p">}]</span><span class="w">
+<pre class="highlight json"><code><span class="w">  </span><span class="p">{</span><span class="nt">"typeId"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+      </span><span class="nt">"profileId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"uuid"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"totalAllowance"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"remain"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w">
+    </span><span class="p">}]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Get total allowance for employees.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET /apps/timeoff/policies/:p_id:/types/:t_id:/balances/new</code></p>
+<p><code class="prettyprint">GET /apps/timeoff/policies/:p_id:/balances/new</code></p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>profiles</td>
+<td>T</td>
+<td>[String]</td>
+<td>Array of profile ids.</td>
+</tr>
+</tbody></table>
 
 <h3 id="errors">Errors</h3>
 
