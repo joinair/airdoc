@@ -2542,6 +2542,90 @@ names: TimeOffPolicyAssigned, TimeOffPolicyUnassigned, TimeOffRequested, TimeOff
 </tr>
 </tbody></table>
 
+<h2 id="update-time-off-profile-settings">Update time off profile settings</h2>
+
+<blockquote>
+<p>Returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"isAutoApprove"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"approvers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"uuid1"</span><span class="p">,</span><span class="w"> </span><span class="s2">"uuid2"</span><span class="p">],</span><span class="w">
+  </span><span class="err">}</span><span class="w">
+</span></code></pre>
+<p>Update profile timeoff settings.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST: /apps/timeoff/profiles/:profile_id:/settings</code></p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>isAutoApprov</td>
+<td>T</td>
+<td>Boolean</td>
+<td>Is need to approve time offs automatically.</td>
+</tr>
+<tr>
+<td>approvers</td>
+<td>T</td>
+<td>[String]</td>
+<td>List of approvers profiles identifiers, should be empty if auto approve is enabled.</td>
+</tr>
+</tbody></table>
+
+<h3 id="errors">Errors</h3>
+
+<table><thead>
+<tr>
+<th>Id</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>person.unauthorizedAction</td>
+<td>Throws if actor has not access to profile.</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-time-off-profile-settings">Get time off profile settings</h2>
+
+<blockquote>
+<p>Returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"isAutoApprove"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"approvers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"uuid1"</span><span class="p">,</span><span class="w"> </span><span class="s2">"uuid2"</span><span class="p">],</span><span class="w">
+  </span><span class="err">}</span><span class="w">
+</span></code></pre>
+<p>Get profile timeoff settings.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET: /apps/timeoff/profiles/:profile_id:/settings</code></p>
+
+<h3 id="errors">Errors</h3>
+
+<table><thead>
+<tr>
+<th>Id</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>person.unauthorizedAction</td>
+<td>Throws if actor has not .</td>
+</tr>
+</tbody></table>
+
       </div>
       <div class="dark-box">
           <div class="lang-selector">
