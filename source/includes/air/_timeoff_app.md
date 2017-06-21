@@ -1612,3 +1612,60 @@ value     | T       | String | value = "Active"
 ---- | -----------
 payments.higherPlanRequired | Throws if plan is not premium.
 
+
+
+## Update time off profile settings
+
+> Returns JSON structured like this:
+
+```json
+  {
+      "isAutoApprove": false,
+      "approvers": ["uuid1", "uuid2"],
+  }
+```
+
+Update profile timeoff settings.
+
+### HTTP Request
+
+`POST: /apps/timeoff/profiles/:profile_id:/settings`
+
+###  Parameters
+
+Parameter    | Required |   Type   | Description
+------------ | -------- | -------- | -----------
+isAutoApprov |    T     | Boolean  | Is need to approve time offs automatically.
+approvers    |    T     | [String] | List of approvers profiles identifiers, should be empty if auto approve is enabled.
+
+
+### Errors
+
+ Id  | Description
+---- | -----------
+person.unauthorizedAction | Throws if actor has not access to profile.
+
+
+
+## Get time off profile settings
+
+> Returns JSON structured like this:
+
+```json
+  {
+      "isAutoApprove": false,
+      "approvers": ["uuid1", "uuid2"],
+  }
+```
+
+Get profile timeoff settings.
+
+### HTTP Request
+
+`GET: /apps/timeoff/profiles/:profile_id:/settings`
+
+### Errors
+
+ Id  | Description
+---- | -----------
+person.unauthorizedAction | Throws if actor has not .
