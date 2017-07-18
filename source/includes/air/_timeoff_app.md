@@ -928,8 +928,8 @@ Get time off events for report
 
 Parameter | Required|  Type  | Description
 --------- | ------- | ------ | -----------
-policyId  | F       | String | Id of policy, if not specified timeoffs for all policies.
-typeId    | F       | String | Id of time off type, if not specified timeoffs for all types.
+policyId  | F       | String | Id of policy, if not specified time offs will be returned for all policies.
+typeId    | F       | String | Id of time off type, if not specified timeoffs will be returned for all types.
 startDate | T       | String | Start of filtering period.
 endDate   | T       | String | End of filtering period.
 
