@@ -1545,6 +1545,86 @@ off will start accuring.</p>
 </tr>
 </tbody></table>
 
+<h2 id="time-offs-report">Time offs report</h2>
+
+<blockquote>
+<p>Returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="w">  </span><span class="p">[{</span><span class="w">
+      </span><span class="nt">"timeOffId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"uuid"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"policyId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"uuid"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"typeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Holidays"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Active"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"startDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-01"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"endDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-01"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"moreThanDay"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"duration"</span><span class="p">:{</span><span class="w">
+        </span><span class="nt">"hours"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"days"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+       </span><span class="p">},</span><span class="w">
+      </span><span class="nt">"comment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some comment"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"some description"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"profileId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"uuid"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Donald"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"lastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Duck"</span><span class="w">
+  </span><span class="p">}]</span><span class="w">
+</span></code></pre>
+<p>Get time off events for report</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET /apps/timeoff/report</code></p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>policyId</td>
+<td>F</td>
+<td>String</td>
+<td>Id of policy, if not specified timeoffs for all policies.</td>
+</tr>
+<tr>
+<td>typeId</td>
+<td>F</td>
+<td>String</td>
+<td>Id of time off type, if not specified timeoffs for all types.</td>
+</tr>
+<tr>
+<td>startDate</td>
+<td>T</td>
+<td>String</td>
+<td>Start of filtering period.</td>
+</tr>
+<tr>
+<td>endDate</td>
+<td>T</td>
+<td>String</td>
+<td>End of filtering period.</td>
+</tr>
+</tbody></table>
+
+<h3 id="errors">Errors</h3>
+
+<table><thead>
+<tr>
+<th>Id</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>person.unauthorizedAction</td>
+<td>Throws if not admin tries to get access to report.</td>
+</tr>
+</tbody></table>
+
 <h2 id="request-time-off-duration">Request time off duration</h2>
 
 <blockquote>
