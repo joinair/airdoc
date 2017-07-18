@@ -892,6 +892,56 @@ timeOffPolicy.invalidTimeOff | Throws if time off request parameters are not val
 
 
 
+
+## Time offs report
+
+> Returns JSON structured like this:
+
+```json
+  [{
+      "timeOffId": "uuid",
+      "policyId": "uuid",
+      "typeName": "Holidays",
+      "status": "Active",
+      "startDate": "2017-02-01",
+      "endDate": "2017-02-01",
+      "moreThanDay": "true",
+      "duration":{
+        "hours": 1,
+        "days": 1
+       },
+      "comment": "some comment",
+      "description": "some description",
+      "profileId": "uuid",
+      "firstName": "Donald",
+      "lastName": "Duck"
+  }]
+```
+
+Get time off events for report
+
+### HTTP Request
+
+`GET /apps/timeoff/report`
+
+###  Query Parameters
+
+Parameter | Required|  Type  | Description
+--------- | ------- | ------ | -----------
+policyId  | F       | String | Id of policy, if not specified timeoffs for all policies.
+typeId    | F       | String | Id of time off type, if not specified timeoffs for all types.
+startDate | T       | String | Start of filtering period.
+endDate   | T       | String | End of filtering period.
+
+
+### Errors
+
+ Id  | Description
+---- | -----------
+person.unauthorizedAction | Throws if not admin tries to get access to report.
+
+
+
 ## Request time off duration
 
 > Returns JSON structured like this:
