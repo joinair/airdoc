@@ -1142,6 +1142,152 @@ off will start accuring.</p>
 </tr>
 </tbody></table>
 
+<h2 id="create-policy-type">Create policy type</h2>
+
+<blockquote>
+<p>Returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"uuid"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My awesome type"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"policyTypeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Custom"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"allowance"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"accrualFrequency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Yearly"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"accrualStartDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-01"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"isNeedToRenew"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"renewDateMonth"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"renewDateDay"</span><span class="p">:</span><span class="w"> </span><span class="s2">"31"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"isCarriedOver"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"carryOverLimitDays"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"isWaitingPeriodEnabled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"waitingPeriod"</span><span class="p">:</span><span class="w"> </span><span class="s2">"90"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"isAccruedOnWait"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"isUnlimited"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"isEnabled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Add new policy type.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">PUT /apps/timeoff/policies/:p_id:/types</code></p>
+
+<h3 id="parameters">Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>T</td>
+<td>String</td>
+<td></td>
+</tr>
+<tr>
+<td>policyTypeName</td>
+<td>T</td>
+<td>String</td>
+<td>Holiday, Sickness, Custom</td>
+</tr>
+<tr>
+<td>allowance</td>
+<td>T</td>
+<td>Boolean</td>
+<td>How much days employee can get per year.</td>
+</tr>
+<tr>
+<td>accrualFrequency</td>
+<td>T</td>
+<td>String</td>
+<td>Yearly, Monthly, Weekly.</td>
+</tr>
+<tr>
+<td>accrualStartDate</td>
+<td>T</td>
+<td>String</td>
+<td>2017-02-03.</td>
+</tr>
+<tr>
+<td>isNeedToRenew</td>
+<td>T</td>
+<td>Boolean</td>
+<td></td>
+</tr>
+<tr>
+<td>renewDateMonth</td>
+<td>F</td>
+<td>Int</td>
+<td>Only if isNeedToRenew = true.</td>
+</tr>
+<tr>
+<td>renewDateDay</td>
+<td>F</td>
+<td>Int</td>
+<td>Only if isNeedToRenew = true.</td>
+</tr>
+<tr>
+<td>isCarriedOver</td>
+<td>T</td>
+<td>Boolean</td>
+<td></td>
+</tr>
+<tr>
+<td>carryOverLimitDays</td>
+<td>F</td>
+<td>Int</td>
+<td>Only if isCarriedOver = true.</td>
+</tr>
+<tr>
+<td>isWaitingPeriodEnabled</td>
+<td>T</td>
+<td>Boolean</td>
+<td></td>
+</tr>
+<tr>
+<td>waitingPeriod</td>
+<td>F</td>
+<td>Int</td>
+<td>Only if isWaitingPeriodEnabled = true.</td>
+</tr>
+<tr>
+<td>isAccruedOnWait</td>
+<td>F</td>
+<td>Boolean</td>
+<td>Only if isWaitingPeriodEnabled = true.</td>
+</tr>
+<tr>
+<td>isUnlimited</td>
+<td>T</td>
+<td>Boolean</td>
+<td>If specified other fields ignored.</td>
+</tr>
+<tr>
+<td>isEnabled</td>
+<td>T</td>
+<td>Boolean</td>
+<td>Enable or disable task for policy.</td>
+</tr>
+</tbody></table>
+
+<h3 id="errors">Errors</h3>
+
+<table><thead>
+<tr>
+<th>Id</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>person.unauthorizedAction</td>
+<td>Throws if request is not made by admin.</td>
+</tr>
+</tbody></table>
+
 <h2 id="finis-editing-types-step">Finis editing types step</h2>
 
 <blockquote>
