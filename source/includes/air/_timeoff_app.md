@@ -656,6 +656,64 @@ isEnabled| T | Boolean | Enable or disable task for policy.
 person.unauthorizedAction | Throws if request is not made by admin.
 
 
+## Create policy type
+
+> Returns JSON structured like this:
+
+```json
+  {
+    "id": "uuid",
+    "name": "My awesome type",
+    "policyTypeName": "Custom",
+    "allowance": 20,
+    "accrualFrequency": "Yearly",
+    "accrualStartDate": "2017-02-01",
+    "isNeedToRenew": "true",
+    "renewDateMonth": "12",
+    "renewDateDay": "31",
+    "isCarriedOver": "true",
+    "carryOverLimitDays": "10",
+    "isWaitingPeriodEnabled": "true",
+    "waitingPeriod": "90",
+    "isAccruedOnWait": "false",
+    "isUnlimited": "false",
+    "isEnabled": "true"
+  }
+```
+
+Add new policy type.
+
+### HTTP Request
+
+`PUT /apps/timeoff/policies/:p_id:/types`
+
+###  Parameters
+
+Parameter | Required|  Type  | Description
+--------- | ------- | ------ | -----------
+name | T | String |
+policyTypeName | T | String | Holiday, Sickness, Custom
+allowance | T | Boolean | How much days employee can get per year.
+accrualFrequency | T | String | Yearly, Monthly, Weekly.
+accrualStartDate | T | String | 2017-02-03.
+isNeedToRenew | T | Boolean |
+renewDateMonth | F | Int | Only if isNeedToRenew = true.
+renewDateDay | F |  Int | Only if isNeedToRenew = true.
+isCarriedOver | T | Boolean |
+carryOverLimitDays | F | Int | Only if isCarriedOver = true.
+isWaitingPeriodEnabled | T | Boolean|
+waitingPeriod | F | Int | Only if isWaitingPeriodEnabled = true.
+isAccruedOnWait | F | Boolean | Only if isWaitingPeriodEnabled = true.
+isUnlimited | T | Boolean | If specified other fields ignored.
+isEnabled| T | Boolean | Enable or disable task for policy.
+
+### Errors
+
+ Id  | Description
+---- | -----------
+person.unauthorizedAction | Throws if request is not made by admin.
+
+
 
 ## Finis editing types step
 
